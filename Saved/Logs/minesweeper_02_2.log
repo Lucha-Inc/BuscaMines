@@ -1951,3 +1951,102 @@ LogConfig: Set CVar [[r.VRS.ContrastAdaptiveShading:1]]
 [2025.07.19-12.23.13:425][814]LogText3D: BP_Menu_Lose0 : Text3DRenderer StaticMeshesRenderer Destroyed
 [2025.07.19-12.23.13:511][814]LogUObjectHash: Compacting FUObjectHashTables data took   1.69ms
 [2025.07.19-12.23.13:589][815]LogPlayLevel: Display: Destroying online subsystem :Context_1
+[2025.07.19-12.26.56:740][529]LogEOSSDK: LogEOS: Updating Product SDK Config, Time: 348.703461
+[2025.07.19-12.26.57:739][532]LogEOSSDK: LogEOS: SDK Config Product Update Request Completed - No Change
+[2025.07.19-12.26.57:739][532]LogEOSSDK: LogEOS: ScheduleNextSDKConfigDataUpdate - Time: 349.370941, Update Interval: 328.601959
+[2025.07.19-12.30.23:112][234]LogChaosDD: Not creating Chaos Debug Draw Scene for world World_0
+[2025.07.19-12.30.23:849][237]LogChaosDD: Not creating Chaos Debug Draw Scene for world World_1
+[2025.07.19-12.30.30:620][286]LogFileHelpers: InternalPromptForCheckoutAndSave started...
+[2025.07.19-12.30.31:284][286]LogUObjectHash: Compacting FUObjectHashTables data took   5.85ms
+[2025.07.19-12.30.31:629][286]LogSavePackage: Moving output files for package: /Game/FP/Maps/game_level
+[2025.07.19-12.30.31:630][286]LogSavePackage: Moving '../../../../../../Users/fputi/OneDrive/Documents/GitHub/BuscaMines/Saved/game_levelD0BEB2AB43AA9390650795874E5FBBE2.tmp' to '../../../../../../Users/fputi/OneDrive/Documents/GitHub/BuscaMines/Content/FP/Maps/game_level.umap'
+[2025.07.19-12.30.31:708][286]LogFileHelpers: Saving map 'game_level' took 0.830
+[2025.07.19-12.30.31:726][286]LogFileHelpers: InternalPromptForCheckoutAndSave took 1.10 sec
+[2025.07.19-12.30.31:790][286]LogContentValidation: Display: Starting to validate 1 assets
+[2025.07.19-12.30.31:790][286]LogContentValidation: Enabled validators:
+[2025.07.19-12.30.31:791][286]LogContentValidation: 	/Script/DataValidation.EditorValidator_Material
+[2025.07.19-12.30.31:791][286]LogContentValidation: 	/Script/DataValidation.DirtyFilesChangelistValidator
+[2025.07.19-12.30.31:791][286]LogContentValidation: 	/Script/DataValidation.EditorValidator_Localization
+[2025.07.19-12.30.31:791][286]LogContentValidation: 	/Script/DataValidation.PackageFileValidator
+[2025.07.19-12.30.31:791][286]LogContentValidation: 	/Script/DataValidation.WorldPartitionChangelistValidator
+[2025.07.19-12.30.31:791][286]LogContentValidation: 	/Script/InputBlueprintNodes.EnhancedInputUserWidgetValidator
+[2025.07.19-12.30.31:799][286]AssetCheck: /Game/FP/Maps/game_level Validando recurso
+[2025.07.19-12.30.31:856][286]LogSourceControl: Display: Uncontrolled Changelist persistency file saved ../../../../../../Users/fputi/OneDrive/Documents/GitHub/BuscaMines/Saved/SourceControl/UncontrolledChangelists.json
+[2025.07.19-12.31.31:256][485]LogText3D: Text3D Engine Subsystem is clearing unreferenced cached fonts and typefaces.
+[2025.07.19-12.32.29:595][660]LogEOSSDK: LogEOS: Updating Product SDK Config, Time: 681.559998
+[2025.07.19-12.32.30:595][663]LogEOSSDK: LogEOS: SDK Config Product Update Request Completed - No Change
+[2025.07.19-12.32.30:595][663]LogEOSSDK: LogEOS: ScheduleNextSDKConfigDataUpdate - Time: 682.225708, Update Interval: 339.958496
+[2025.07.19-12.38.17:328][704]LogEOSSDK: LogEOS: Updating Product SDK Config, Time: 1029.284058
+[2025.07.19-12.38.18:320][706]LogEOSSDK: LogEOS: SDK Config Product Update Request Completed - No Change
+[2025.07.19-12.38.18:320][706]LogEOSSDK: LogEOS: ScheduleNextSDKConfigDataUpdate - Time: 1029.951538, Update Interval: 316.729034
+[2025.07.19-12.41.31:446][541]LogText3D: Text3D Engine Subsystem is clearing unreferenced cached fonts and typefaces.
+[2025.07.19-12.41.37:657][597]LogAssetEditorSubsystem: Opening Asset editor for Blueprint /Game/FP/GUI/Widgets/3D_Menu/Master/BP_Actor_Menu3D.BP_Actor_Menu3D
+[2025.07.19-12.41.37:735][597]LogChaosDD: Not creating Chaos Debug Draw Scene for world World_2
+[2025.07.19-12.41.38:485][597]LogStreaming: Display: FlushAsyncLoading(361): 1 QueuedPackages, 0 AsyncPackages
+[2025.07.19-12.41.39:899][597]LogBlueprintEditor: Perf: 1.4 total seconds to load all 10 blueprint libraries in project. Avoid references to content in blueprint libraries to shorten this time.
+[2025.07.19-12.41.39:912][597]LogBlueprintEditor: Perf: 0.9 seconds loading: /PCG/BP_Elements/Resources/RenderTargetFunctions
+[2025.07.19-12.41.39:913][597]LogBlueprintEditor: Perf: 0.2 seconds loading: /GeometryScripting/GeometryScriptMacroLibrary
+[2025.07.19-12.41.47:356][597]LogText3D: BP_Actor_Menu3D_C_0 : Text3DRenderer StaticMeshesRenderer Created
+[2025.07.19-12.41.47:516][597]LogSlate: Took 0.012036 seconds to synchronously load lazily loaded font '../../../Engine/Content/Slate/Fonts/Roboto-BoldCondensed.ttf' (158K)
+[2025.07.19-12.43.47:921][ 83]LogEOSSDK: LogEOS: Updating Product SDK Config, Time: 1359.878296
+[2025.07.19-12.43.48:240][ 87]LogEOSSDK: LogEOS: SDK Config Product Update Request Completed - No Change
+[2025.07.19-12.43.48:240][ 87]LogEOSSDK: LogEOS: ScheduleNextSDKConfigDataUpdate - Time: 1360.118042, Update Interval: 348.648956
+[2025.07.19-12.49.54:161][ 21]LogEOSSDK: LogEOS: Updating Product SDK Config, Time: 1726.114258
+[2025.07.19-12.49.54:465][ 25]LogEOSSDK: LogEOS: SDK Config Product Update Request Completed - No Change
+[2025.07.19-12.49.54:466][ 25]LogEOSSDK: LogEOS: ScheduleNextSDKConfigDataUpdate - Time: 1726.350830, Update Interval: 314.108704
+[2025.07.19-12.51.31:457][558]LogText3D: Text3D Engine Subsystem is clearing unreferenced cached fonts and typefaces.
+[2025.07.19-12.53.16:208][953]LogSlate: Took 0.018338 seconds to synchronously load lazily loaded font '../../../Engine/Content/Slate/Fonts/NotoNaskhArabicUI-Regular.ttf' (144K)
+[2025.07.19-12.53.16:227][953]LogSlate: Took 0.013391 seconds to synchronously load lazily loaded font '../../../Engine/Content/Slate/Fonts/DroidSansFallback.ttf' (3848K)
+[2025.07.19-12.53.21:285][ 20]LogSlate: FontCache flush requested. Reason: Culture for localization was changed
+[2025.07.19-12.53.21:287][ 20]LogSlate: FontCache flush requested. Reason: Culture for localization was changed
+[2025.07.19-12.53.22:866][ 20]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2025.07.19-12.53.22:906][ 20]LogSlate: InvalidateAllWidgets triggered.  All widgets were invalidated
+[2025.07.19-12.53.22:915][ 21]LogSlate: Took 0.001996 seconds to synchronously load lazily loaded font '../../../Engine/Content/Slate/Fonts/Roboto-Regular.ttf' (155K)
+[2025.07.19-12.53.22:929][ 21]LogSlate: Took 0.003292 seconds to synchronously load lazily loaded font '../../../Engine/Content/Slate/Fonts/Roboto-Bold.ttf' (160K)
+[2025.07.19-12.53.22:932][ 21]LogSlate: Took 0.001720 seconds to synchronously load lazily loaded font '../../../Engine/Content/Slate/Fonts/DroidSansMono.ttf' (77K)
+[2025.07.19-12.53.22:940][ 21]LogSlate: Took 0.002521 seconds to synchronously load lazily loaded font '../../../Engine/Content/Slate/Fonts/Roboto-BoldCondensed.ttf' (158K)
+[2025.07.19-12.53.22:945][ 21]LogSlate: Took 0.003596 seconds to synchronously load lazily loaded font '../../../Engine/Content/Slate/Fonts/Roboto-Italic.ttf' (157K)
+[2025.07.19-12.53.26:383][ 63]LogSlate: Window 'Editor Preferences' being destroyed
+[2025.07.19-12.53.26:554][ 63]LogSlate: Window 'Editor Preferences' being destroyed
+[2025.07.19-12.56.01:850][170]LogEOSSDK: LogEOS: Updating Product SDK Config, Time: 2093.806396
+[2025.07.19-12.56.02:134][174]LogEOSSDK: LogEOS: SDK Config Product Update Request Completed - No Change
+[2025.07.19-12.56.02:134][174]LogEOSSDK: LogEOS: ScheduleNextSDKConfigDataUpdate - Time: 2094.038330, Update Interval: 310.541718
+[2025.07.19-12.59.18:172][840]LogAssetEditorSubsystem: Opening Asset editor for Blueprint /Game/FP/GUI/Widgets/3D_Menu/Instance/BP_Menu_Presentation.BP_Menu_Presentation
+[2025.07.19-12.59.18:249][840]LogChaosDD: Not creating Chaos Debug Draw Scene for world World_3
+[2025.07.19-12.59.22:307][840]LogWindows: Error: === Critical error: ===
+[2025.07.19-12.59.22:307][840]LogWindows: Error: 
+[2025.07.19-12.59.22:307][840]LogWindows: Error: Fatal error!
+[2025.07.19-12.59.22:307][840]LogWindows: Error: 
+[2025.07.19-12.59.22:307][840]LogWindows: Error: Unhandled Exception: EXCEPTION_ACCESS_VIOLATION reading address 0x0000000000000300
+[2025.07.19-12.59.22:307][840]LogWindows: Error: 
+[2025.07.19-12.59.22:307][840]LogWindows: Error: [Callstack] 0x000001c61e96f6af UnrealEditor-Text3D.dll!UnknownFunction []
+[2025.07.19-12.59.22:307][840]LogWindows: Error: [Callstack] 0x000001c61e979e64 UnrealEditor-Text3D.dll!UnknownFunction []
+[2025.07.19-12.59.22:307][840]LogWindows: Error: [Callstack] 0x00007ffde2526989 UnrealEditor-Engine.dll!UnknownFunction []
+[2025.07.19-12.59.22:307][840]LogWindows: Error: [Callstack] 0x00007ffde259a25a UnrealEditor-Engine.dll!UnknownFunction []
+[2025.07.19-12.59.22:307][840]LogWindows: Error: [Callstack] 0x00007ffde399ca1e UnrealEditor-Engine.dll!UnknownFunction []
+[2025.07.19-12.59.22:307][840]LogWindows: Error: [Callstack] 0x00007ffde38a2233 UnrealEditor-Engine.dll!UnknownFunction []
+[2025.07.19-12.59.22:307][840]LogWindows: Error: [Callstack] 0x00007ffde38a323d UnrealEditor-Engine.dll!UnknownFunction []
+[2025.07.19-12.59.22:307][840]LogWindows: Error: [Callstack] 0x00007ffde397a3fa UnrealEditor-Engine.dll!UnknownFunction []
+[2025.07.19-12.59.22:307][840]LogWindows: Error: [Callstack] 0x00007ffde1c98176 UnrealEditor-Engine.dll!UnknownFunction []
+[2025.07.19-12.59.22:307][840]LogWindows: Error: [Callstack] 0x00007ffde1c9e505 UnrealEditor-Engine.dll!UnknownFunction []
+[2025.07.19-12.59.22:307][840]LogWindows: Error: [Callstack] 0x00007ffde1cc2ea1 UnrealEditor-Engine.dll!UnknownFunction []
+[2025.07.19-12.59.22:307][840]LogWindows: Error: [Callstack] 0x00007ffde2e542eb UnrealEditor-Engine.dll!UnknownFunction []
+[2025.07.19-12.59.22:307][840]LogWindows: Error: [Callstack] 0x00007ffde2e5488f UnrealEditor-Engine.dll!UnknownFunction []
+[2025.07.19-12.59.22:307][840]LogWindows: Error: [Callstack] 0x00007ffdd920ff72 UnrealEditor-Kismet.dll!UnknownFunction []
+[2025.07.19-12.59.22:307][840]LogWindows: Error: [Callstack] 0x00007ffdd9208080 UnrealEditor-Kismet.dll!UnknownFunction []
+[2025.07.19-12.59.22:307][840]LogWindows: Error: [Callstack] 0x00007ffddd6e37cb UnrealEditor-UnrealEd.dll!UnknownFunction []
+[2025.07.19-12.59.22:307][840]LogWindows: Error: [Callstack] 0x00007ffde3f02745 UnrealEditor-Engine.dll!UnknownFunction []
+[2025.07.19-12.59.22:307][840]LogWindows: Error: [Callstack] 0x00007ffdddc91ff7 UnrealEditor-UnrealEd.dll!UnknownFunction []
+[2025.07.19-12.59.22:307][840]LogWindows: Error: [Callstack] 0x00007ffdde965546 UnrealEditor-UnrealEd.dll!UnknownFunction []
+[2025.07.19-12.59.22:307][840]LogWindows: Error: [Callstack] 0x00007ff62a6b9ce4 UnrealEditor.exe!UnknownFunction []
+[2025.07.19-12.59.22:307][840]LogWindows: Error: [Callstack] 0x00007ff62a6de5ac UnrealEditor.exe!UnknownFunction []
+[2025.07.19-12.59.22:307][840]LogWindows: Error: [Callstack] 0x00007ff62a6de6ba UnrealEditor.exe!UnknownFunction []
+[2025.07.19-12.59.22:307][840]LogWindows: Error: [Callstack] 0x00007ff62a6e209e UnrealEditor.exe!UnknownFunction []
+[2025.07.19-12.59.22:307][840]LogWindows: Error: [Callstack] 0x00007ff62a6f4e44 UnrealEditor.exe!UnknownFunction []
+[2025.07.19-12.59.22:307][840]LogWindows: Error: [Callstack] 0x00007ff62a6f80fa UnrealEditor.exe!UnknownFunction []
+[2025.07.19-12.59.22:307][840]LogWindows: Error: [Callstack] 0x00007ffecf38259d KERNEL32.DLL!UnknownFunction []
+[2025.07.19-12.59.22:307][840]LogWindows: Error: 
+[2025.07.19-12.59.22:327][840]LogExit: Executing StaticShutdownAfterError
+[2025.07.19-12.59.24:042][840]LogWindows: FPlatformMisc::RequestExit(1, LaunchWindowsStartup.ExceptionHandler)
+[2025.07.19-12.59.24:043][840]LogWindows: FPlatformMisc::RequestExitWithStatus(1, 3, LaunchWindowsStartup.ExceptionHandler)
+[2025.07.19-12.59.24:043][840]LogCore: Engine exit requested (reason: Win RequestExit)
