@@ -43,7 +43,18 @@
 				"C:/Users/fputi/OneDrive/Documents/GitHub/BuscaMines/Content/FP/GUI/UserWidgets/UI_GameMode_Stats.uasset",
 				"C:/Users/fputi/OneDrive/Documents/GitHub/BuscaMines/Content/FP/GUI/Widgets/UI_Menu/Master/UW_Menu_Button.uasset",
 				"C:/Users/fputi/OneDrive/Documents/GitHub/BuscaMines/Content/FP/GUI/Widgets/UI_Menu/Instance/UW_Menu_PlayMode_Dificulties.uasset",
-				"C:/Users/fputi/OneDrive/Documents/GitHub/BuscaMines/Content/FP/GUI/Widgets/UI_Control/UW_Slider1.uasset"
+				"C:/Users/fputi/OneDrive/Documents/GitHub/BuscaMines/Content/FP/GUI/Widgets/UI_Control/UW_Slider1.uasset",
+				"C:/Users/fputi/OneDrive/Documents/GitHub/BuscaMines/Content/FP/BluePrints/Assets_BP/Menu/BP_Actor_MenuHolder.uasset",
+				"C:/Users/fputi/OneDrive/Documents/GitHub/BuscaMines/Content/FP/BluePrints/Chareacters/Player/BP_Actor_MenuHolder.uasset",
+				"C:/Users/fputi/OneDrive/Documents/GitHub/BuscaMines/Content/FP/BluePrints/Assets_BP/Menu/BP_Menu2D_model.uasset",
+				"C:/Users/fputi/OneDrive/Documents/GitHub/BuscaMines/Content/FP/BluePrints/Assets_BP/Menu/BP_Menu3D_model.uasset",
+				"C:/Users/fputi/OneDrive/Documents/GitHub/BuscaMines/Content/FP/BluePrints/Assets_BP/Menu/BP_Actor_Menu3D_Holder.uasset",
+				"C:/Users/fputi/OneDrive/Documents/GitHub/BuscaMines/Content/FP/GUI/Widgets/3D_Menu/Master/BP_Actor_Menu3D.uasset",
+				"C:/Users/fputi/OneDrive/Documents/GitHub/BuscaMines/Content/FP/BluePrints/Assets_BP/Text3D/BP_Text3D_Master.uasset",
+				"C:/Users/fputi/OneDrive/Documents/GitHub/BuscaMines/Content/FP/BluePrints/Assets_BP/Text3D/BP_Text3D_Title.uasset",
+				"C:/Users/fputi/OneDrive/Documents/GitHub/BuscaMines/Content/FP/Materials/M_Basic_Floor1.uasset",
+				"C:/Users/fputi/OneDrive/Documents/GitHub/BuscaMines/Content/FP/BluePrints/Assets_BP/Text3D/BP_Text3D_Button.uasset",
+				"C:/Users/fputi/OneDrive/Documents/GitHub/BuscaMines/Content/FP/GUI/Widgets/3D_Menu/Instance/BP_Menu_Presentation.uasset"
 			]
 		}
 	]
