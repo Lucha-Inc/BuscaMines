@@ -16989,3 +16989,6 @@ Script call stack:
 [2025.08.12-00.00.29:142][526]LogSavePackage: Moving output files for package: /Temp/Autosaves/Game/FP/BluePrints/Controller/BP_PlayerController_Mobile_BACKUP_BORRAR_Auto3
 [2025.08.12-00.00.29:142][526]LogSavePackage: Moving '../../../../../../Users/fputi/OneDrive/Documents/GitHub/BuscaMines/Saved/BP_PlayerController_Mobile_BACKU7B8B9F494A57A005D6C4628157DAF0C8.tmp' to '../../../../../../Users/fputi/OneDrive/Documents/GitHub/BuscaMines/Saved/Autosaves/Game/FP/BluePrints/Controller/BP_PlayerController_Mobile_BACKUP_BORRAR_Auto3.uasset'
 [2025.08.12-00.00.29:143][526]LogFileHelpers: Auto-saving content packages took 0.047
+[2025.08.12-00.02.00:689][801]LogEOSSDK: LogEOS: Updating Product SDK Config, Time: 3871.159668
+[2025.08.12-00.02.01:688][804]LogEOSSDK: LogEOS: SDK Config Product Update Request Completed - No Change
+[2025.08.12-00.02.01:688][804]LogEOSSDK: LogEOS: ScheduleNextSDKConfigDataUpdate - Time: 3871.825195, Update Interval: 306.705536
