@@ -40,14 +40,6 @@
 		{
 			"Name": "OnlineSubsystemEOS",
 			"Enabled": true
-		},
-		{
-			"Name": "StatsSystem",
-			"Enabled": false
-		},
-		{
-			"Name": "CacoSoundSystem",
-			"Enabled": false
 		}
 	]
 }
