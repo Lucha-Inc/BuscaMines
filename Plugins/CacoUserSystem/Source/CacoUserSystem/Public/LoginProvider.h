@@ -6,7 +6,7 @@
 UENUM(BlueprintType)
 enum class ELoginProvider : uint8
 {
-    Local       UMETA(DisplayName = "Local"),
+    Guest       UMETA(DisplayName = "Guest"),
     Google      UMETA(DisplayName = "Google"),
     EOS         UMETA(DisplayName = "Epic Online Services"),
     Microsoft   UMETA(DisplayName = "Microsoft"),

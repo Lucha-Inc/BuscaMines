@@ -1,8 +1,17 @@
 // CacoUserSubsystem.cpp
 #include "CacoUserSubsystem.h"
 #include "Kismet/GameplayStatics.h"
+#include "Logging/LogMacros.h"
 #include "CacoUserSettings.h"
+#include "CacoUserSave.h"
+#include "LoginProvider.h"
 
+DEFINE_LOG_CATEGORY_STATIC(LogCacoUserSubsystem, Log, All);
+
+
+
+
+const FString UCacoUserSubsystem::CacoUserSlotName = TEXT("CacoUserSlot");
 
 
 void UCacoUserSubsystem::Initialize(FSubsystemCollectionBase& Collection)
@@ -10,73 +19,106 @@ void UCacoUserSubsystem::Initialize(FSubsystemCollectionBase& Collection)
     Super::Initialize(Collection);
 
     CachedSettings = GetDefault<UCacoUserSettings>();
-    if (CachedSettings)
-    {
-        UE_LOG(LogTemp, Log, TEXT("AutoSave: %s"), CachedSettings->bAutoSaveLocalUsers ? TEXT("true") : TEXT("false"));
-        UE_LOG(LogTemp, Log, TEXT("SaveFileName: %s"), *CachedSettings->LocalUserSaveFileName);
-        UE_LOG(LogTemp, Log, TEXT("RememberLastUser: %s"), CachedSettings->bRememberLastLoggedInUser ? TEXT("true") : TEXT("false"));
-        UE_LOG(LogTemp, Log, TEXT("DefaultGuest: %s (%s)"), CachedSettings->bDefaultGuestUser ? TEXT("true") : TEXT("false"), *CachedSettings->DefaultGuestUserName);
-    }
+    LoadLocalData();
 }
 
 void UCacoUserSubsystem::Deinitialize()
 {
-    //SaveLocalUsers();
+    SaveLocalData();
     Super::Deinitialize();
 }
-bool UCacoUserSubsystem::Login(const FString& UserId, const FString& DisplayName, const FString& Provider)
+bool UCacoUserSubsystem::Login(const FString& UserId, const FString& DisplayName, const ELoginProvider Provider)
 {
+    check(SaveGameInstance);
     CurrentUser = FCacoUser(UserId, DisplayName, Provider);
 
-    // Agregar a LocalUsers si no existe
-    if (!LocalUsers.ContainsByPredicate([&](const FCacoUser& User) { return User.UserId == UserId; }))
+    if (!SaveGameInstance->LocalUsers.ContainsByPredicate([&](const FCacoUser& User) { return User.UserId == UserId; }))
     {
-        LocalUsers.Add(CurrentUser);
+        SaveGameInstance->LocalUsers.Add(CurrentUser);
     }
 
-    SaveLocalUsers();
-    SaveLastLoggedInUser();
+    SaveGameInstance->LastLoggedInUser = CurrentUser;
+    SaveGameInstance->LastLoginProvider = Provider;
+    UE_LOG(LogCacoUserSubsystem, Log, TEXT("Usuario actual: %s"), *CurrentUser.UserId);
+
+    SaveLocalData();
     return true;
 }
 
 void UCacoUserSubsystem::Logout()
 {
+    UE_LOG(LogCacoUserSubsystem, Log, TEXT("Usuario %s ha cerrado sesion."), *CurrentUser.UserId);
+    SaveGameInstance->LastLoggedInUser = FCacoUser();
     CurrentUser = FCacoUser();
+    SaveLocalData();
 }
 
-FCacoUser UCacoUserSubsystem::GetCurrentUser() const
+const FCacoUser& UCacoUserSubsystem::GetCurrentUser() const
 {
     return CurrentUser;
 }
 
-FCacoUser UCacoUserSubsystem::GetLastLoggedInUser() const
+const FCacoUser& UCacoUserSubsystem::GetLastLoggedInUser() const
 {
-    FCacoUser LastUser;
-    // Aquí cargarías del archivo guardado
-    return LastUser;
+    static FCacoUser EmptyUser;
+    if (SaveGameInstance) {
+        return SaveGameInstance->LastLoggedInUser;
+    }
+    else {
+        return EmptyUser;
+    }
 }
 
 const TArray<FCacoUser>& UCacoUserSubsystem::GetLocalUsers() const
 {
-    return LocalUsers;
+    static TArray<FCacoUser> EmptyArray;
+    if (SaveGameInstance) {
+        return SaveGameInstance->LocalUsers;
+    }
+    else {
+        return EmptyArray;
+    }
 }
 
-void UCacoUserSubsystem::SaveLocalUsers()
+ELoginProvider UCacoUserSubsystem::GetLastLoginProvider() const 
 {
-    // TODO: Guardar LocalUsers en archivo JSON o SaveGame
+    if (SaveGameInstance) {
+        return SaveGameInstance->LastLoginProvider;
+    }
+    else {
+        return ELoginProvider::Guest;
+    }
 }
 
-void UCacoUserSubsystem::LoadLocalUsers()
-{
-    // TODO: Cargar LocalUsers desde archivo
+void UCacoUserSubsystem::LoadLocalData() {
+    SaveGameInstance = Cast<UCacoUserSave>(
+        UGameplayStatics::LoadGameFromSlot(CacoUserSlotName, 0)
+    );
+
+
+    if (!SaveGameInstance) {
+        UE_LOG(LogCacoUserSubsystem, Warning, TEXT("No se encontró un SaveGame existente. Se creara uno nuevo."));
+        SaveGameInstance = Cast<UCacoUserSave>(UGameplayStatics::CreateSaveGameObject(UCacoUserSave::StaticClass()));
+    }
+    else {
+        UE_LOG(LogCacoUserSubsystem, Log, TEXT("SaveGame cargado correctamente."));
+    }
+
+    if (SaveGameInstance) {
+        CurrentUser = SaveGameInstance ? SaveGameInstance->LastLoggedInUser : FCacoUser();
+    }
 }
 
-void UCacoUserSubsystem::SaveLastLoggedInUser()
-{
-    // TODO: Guardar CurrentUser como último usuario logueado
+
+void UCacoUserSubsystem::SaveLocalData() {
+    bool bSuccess = UGameplayStatics::SaveGameToSlot(SaveGameInstance, CacoUserSlotName, 0);
+    UE_LOG(LogCacoUserSubsystem, Log, TEXT("SaveGame guardado en slot '%s' %s."), *CacoUserSlotName, bSuccess ? TEXT("correctamente") : TEXT("fallo"));
 }
 
-void UCacoUserSubsystem::LoadLastLoggedInUser()
-{
-    // TODO: Cargar último usuario logueado
-}
+
+
+
+
+
+
+
