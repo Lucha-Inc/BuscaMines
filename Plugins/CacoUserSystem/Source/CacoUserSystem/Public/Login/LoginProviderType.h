@@ -1,10 +1,10 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "LoginProvider.generated.h"
+#include "LoginProviderType.generated.h"
 
 UENUM(BlueprintType)
-enum class ELoginProvider : uint8
+enum class ELoginProviderType : uint8
 {
     Guest       UMETA(DisplayName = "Guest"),
     Google      UMETA(DisplayName = "Google"),

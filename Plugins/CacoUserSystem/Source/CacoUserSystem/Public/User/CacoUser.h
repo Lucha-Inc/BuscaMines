@@ -1,7 +1,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
-#include "LoginProvider.h"
+#include "Login/LoginProviderType.h"
 #include "CacoUser.generated.h"
 
 
@@ -18,10 +18,10 @@ struct CACOUSERSYSTEM_API FCacoUser
     FString DisplayName;
 
     UPROPERTY(BlueprintReadOnly)
-    ELoginProvider Provider; // EOS, Guest, Google, etc.
+    ELoginProviderType Provider; // EOS, Guest, Google, etc.
 
     FCacoUser() {}
-    FCacoUser(const FString& InUserId, const FString& InDisplayName, const ELoginProvider InProvider)
+    FCacoUser(const FString& InUserId, const FString& InDisplayName, const ELoginProviderType InProvider)
         : UserId(InUserId), DisplayName(InDisplayName), Provider(InProvider) {
     }
 };

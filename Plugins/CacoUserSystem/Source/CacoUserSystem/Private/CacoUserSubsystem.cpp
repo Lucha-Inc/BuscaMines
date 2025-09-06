@@ -2,9 +2,9 @@
 #include "CacoUserSubsystem.h"
 #include "Kismet/GameplayStatics.h"
 #include "Logging/LogMacros.h"
-#include "CacoUserSettings.h"
-#include "CacoUserSave.h"
-#include "LoginProvider.h"
+#include "User/CacoUserSettings.h"
+#include "User/CacoUserSave.h"
+#include "Login/LoginProviderType.h"
 
 DEFINE_LOG_CATEGORY_STATIC(LogCacoUserSubsystem, Log, All);
 
@@ -27,7 +27,7 @@ void UCacoUserSubsystem::Deinitialize()
     SaveLocalData();
     Super::Deinitialize();
 }
-bool UCacoUserSubsystem::Login(const FString& UserId, const FString& DisplayName, const ELoginProvider Provider)
+bool UCacoUserSubsystem::Login(const FString& UserId, const FString& DisplayName, const ELoginProviderType Provider)
 {
     check(SaveGameInstance);
     CurrentUser = FCacoUser(UserId, DisplayName, Provider);
@@ -80,13 +80,13 @@ const TArray<FCacoUser>& UCacoUserSubsystem::GetLocalUsers() const
     }
 }
 
-ELoginProvider UCacoUserSubsystem::GetLastLoginProvider() const 
+ELoginProviderType UCacoUserSubsystem::GetLastLoginProvider() const
 {
     if (SaveGameInstance) {
         return SaveGameInstance->LastLoginProvider;
     }
     else {
-        return ELoginProvider::Guest;
+        return ELoginProviderType::Guest;
     }
 }
 

@@ -3,11 +3,10 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/SaveGame.h"
-//#include "LoginProvider.h"
-#include "CacoUser.h"
+#include "User/CacoUser.h"
 #include "CacoUserSave.generated.h"
 
-enum class ELoginProvider : uint8;
+enum class ELoginProviderType : uint8;
 
 UCLASS(Blueprintable)
 class CACOUSERSYSTEM_API UCacoUserSave : public USaveGame
@@ -23,7 +22,7 @@ public:
     FCacoUser LastLoggedInUser;
 
     UPROPERTY(BlueprintReadWrite)
-    ELoginProvider LastLoginProvider;
+    ELoginProviderType LastLoginProvider;
 
 };
 

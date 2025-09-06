@@ -2,9 +2,9 @@
 
 #include "CoreMinimal.h"
 #include "Subsystems/GameInstanceSubsystem.h"
-#include "CacoUserSave.h"
-#include "LoginProvider.h"
-#include "CacoUser.h"
+#include "User/CacoUserSave.h"
+#include "Login/LoginProviderType.h"
+#include "User/CacoUser.h"
 #include "CacoUserSubsystem.generated.h"
 class UCacoUserSettings;
 
@@ -25,7 +25,7 @@ public:
 
     // Login de un usuario 
     UFUNCTION(BlueprintCallable, Category = "User Management")
-    bool Login(const FString& UserId, const FString& DisplayName, const ELoginProvider Provider);
+    bool Login(const FString& UserId, const FString& DisplayName, const ELoginProviderType Provider);
 
     // Logout del usuario actual 
     UFUNCTION(BlueprintCallable, Category = "User Management")
@@ -44,7 +44,7 @@ public:
     const TArray<FCacoUser>& GetLocalUsers() const;
 
     UFUNCTION(BlueprintCallable, Category = "User Management")
-    ELoginProvider GetLastLoginProvider() const;
+    ELoginProviderType GetLastLoginProvider() const;
 
 protected:
 
