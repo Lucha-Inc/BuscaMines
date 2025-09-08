@@ -97,7 +97,7 @@ void UCacoUserSubsystem::LoadLocalData() {
 
 
     if (!SaveGameInstance) {
-        UE_LOG(LogCacoUserSubsystem, Warning, TEXT("No se encontró un SaveGame existente. Se creara uno nuevo."));
+        UE_LOG(LogCacoUserSubsystem, Warning, TEXT("No se encontro un SaveGame existente. Se creara uno nuevo."));
         SaveGameInstance = Cast<UCacoUserSave>(UGameplayStatics::CreateSaveGameObject(UCacoUserSave::StaticClass()));
     }
     else {

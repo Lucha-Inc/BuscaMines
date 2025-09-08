@@ -31,8 +31,8 @@ public class CacoUserSystem : ModuleRules
 				"Engine",
                 "DeveloperSettings",
                 "InputCore",
-				//"GameFramework",
-				//"Subsystems"
+			    "OnlineSubsystem",
+				"OnlineSubsystemEOS"
             }
             );
 
