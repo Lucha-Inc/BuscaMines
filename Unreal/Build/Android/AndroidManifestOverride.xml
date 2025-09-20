@@ -1,0 +1,23 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.PTGNN.BUSCAmines"
+    android:versionCode="1"
+    android:versionName="1.0">
+
+    <!-- Único permiso que realmente necesitas -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" android:maxSdkVersion="28"/>
+
+    <application android:label="BuscaMines"
+        android:icon="@mipmap/ic_launcher">
+        <activity android:name="com.epicgames.ue4.GameActivity"
+            android:label="BuscaMines"
+            android:configChanges="orientation|keyboardHidden|screenSize|screenLayout|smallestScreenSize|locale|layoutDirection|fontScale|keyboard|navigation|mnc|mcc|density|uiMode"
+            android:launchMode="singleTask"
+            android:hardwareAccelerated="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>
