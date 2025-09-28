@@ -1,3 +1,167 @@
+
+#pragma once
+
+#include "CoreMinimal.h"
+#include "GameFramework/SaveGame.h"
+#include "Kismet/GameplayStatics.h"
+#include "SaveGameMaster.generated.h"
+
+UCLASS(BlueprintType)
+class CACOUSERSYSTEM_API USaveGameMaster : public USaveGame {
+    GENERATED_BODY()
+
+public:
+
+    // Guardar esta instancia en el slot del usuario
+    UFUNCTION(BlueprintCallable, Category = "CacoSaveGame")
+    bool Save(int32 UserId = 0) {
+        FString Slot = GetSlotName(UserId, GetClass()); // usa la clase real de la instancia
+        return UGameplayStatics::SaveGameToSlot(this, Slot, 0);
+    }
+
+    // Cargar el save del usuario
+    UFUNCTION(BlueprintCallable, Category = "CacoSaveGame", meta = (WorldContext = "WorldContextObject"))
+    static USaveGameMaster* Load(TSubclassOf<USaveGameMaster> SaveClass, int32 UserId = 0) {
+        FString Slot = GetSlotName(UserId, *SaveClass);
+        if (UGameplayStatics::DoesSaveGameExist(Slot, 0)) {
+            return Cast<USaveGameMaster>(UGameplayStatics::LoadGameFromSlot(Slot, 0));
+        }
+        return nullptr;
+    }
+
+protected:
+
+    // Genera un nombre de slot dinámico en base a la clase concreta
+    static FString GetSlotName(int32 UserId, UClass* InClass) {
+        return FString::Printf(TEXT("%s_%d"), *InClass->GetName(), UserId);
+    }
+
+    // Sobrecarga para TSubclassOf
+    static FString GetSlotName(int32 UserId, TSubclassOf<USaveGameMaster> SaveClass) {
+        return FString::Printf(TEXT("%s_%d"), *SaveClass->GetName(), UserId);
+    }
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+#pragma once
+
+#include "CoreMinimal.h"
+#include "GameFramework/SaveGame.h"
+#include "Kismet/GameplayStatics.h"
+#include "SaveGameMaster.generated.h"
+
+UCLASS(BlueprintType)
+class CACOUSERSYSTEM_API USaveGameMaster : public USaveGame {
+    GENERATED_BODY()
+
+public:
+
+    // Guardar esta instancia en el slot del usuario
+    UFUNCTION(BlueprintCallable, Category = "SaveGame")
+    bool Save(int32 UserId = 0) {
+        FString Slot = GetSlotName(UserId, GetClass()); // usa la clase real de la instancia
+        return UGameplayStatics::SaveGameToSlot(this, Slot, 0);
+    }
+
+    // Cargar el save del usuario
+    UFUNCTION(BlueprintCallable, Category = "SaveGame")
+    static USaveGameMaster* Load(TSubclassOf<USaveGameMaster> SaveClass, int32 UserId = 0) {
+        FString Slot = GetSlotName(UserId, *SaveClass);
+        if (UGameplayStatics::DoesSaveGameExist(Slot, 0)) {
+            return Cast<USaveGameMaster>(UGameplayStatics::LoadGameFromSlot(Slot, 0));
+        }
+        return nullptr;
+    }
+
+protected:
+
+    // Genera un nombre de slot dinámico en base a la clase concreta
+    static FString GetSlotName(int32 UserId, UClass* InClass) {
+        return FString::Printf(TEXT("%s_%d"), *InClass->GetName(), UserId);
+    }
+
+    // Sobrecarga para TSubclassOf
+    static FString GetSlotName(int32 UserId, TSubclassOf<USaveGameMaster> SaveClass) {
+        return FString::Printf(TEXT("%s_%d"), *SaveClass->GetName(), UserId);
+    }
+};
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
 #pragma once
 
 #include "CoreMinimal.h"
@@ -11,14 +175,12 @@ class CACOUSERSYSTEM_API USaveGameMaster : public USaveGame {
 
 public:
 
-    /** Guarda esta instancia usando el nombre de la clase como slot */
     UFUNCTION(BlueprintCallable, Category = "SaveGame")
     bool Save() {
         FString SlotName = GetClass()->GetName();
         return UGameplayStatics::SaveGameToSlot(this, SlotName, 0);
     }
 
-    /** Carga la instancia de esta clase usando el nombre de la clase como slot */
     UFUNCTION(BlueprintCallable, Category = "SaveGame")
     static USaveGameMaster* Load(TSubclassOf<USaveGameMaster> SaveClass) {
         if (!SaveClass) return nullptr;
@@ -34,7 +196,7 @@ public:
     }
 };
 
-
+*/
 
 
 

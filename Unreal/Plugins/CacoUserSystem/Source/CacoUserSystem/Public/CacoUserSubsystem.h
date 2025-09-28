@@ -21,21 +21,20 @@ public:
     virtual void Initialize(FSubsystemCollectionBase& Collection) override;
     virtual void Deinitialize() override;
 
-    UFUNCTION(BlueprintCallable, Category = "User Management")
-    bool Prueba1(int32 val);
 
-    UFUNCTION(BlueprintCallable, Category = "User Management")
-    bool Prueba2();
+    UFUNCTION(BlueprintCallable, Category = "CacoUser Management")
+    int32 LogIn(int32 UserIndex = -1);
+
+
+protected:
 
     // Obtiene el último usuario logueado 
-    UFUNCTION(BlueprintCallable, Category = "User Management")
+    UFUNCTION(BlueprintCallable, Category = "CacoUser Management")
     int32 GetLastLoggedInUserIndex() const;
 
     // Obtiene todos los usuarios guardados en este dispositivo 
-    UFUNCTION(BlueprintCallable, Category = "User Management")
+    UFUNCTION(BlueprintCallable, Category = "CacoUser Management")
     TMap<int32, FCacoUserStruct>& GetLocalUsers() const;
-
-protected:
 
     UPROPERTY()
     const UCacoUserSettings* CachedSettings;
