@@ -2,9 +2,7 @@
 
 #include "CoreMinimal.h"
 #include "Subsystems/GameInstanceSubsystem.h"
-#include "User/CacoUserSave.h"
-#include "Login/LoginProviderType.h"
-#include "User/CacoUser.h"
+#include "User/CacoUserStruct.h"
 #include "CacoUserSubsystem.generated.h"
 class UCacoUserSettings;
 
@@ -23,45 +21,21 @@ public:
     virtual void Initialize(FSubsystemCollectionBase& Collection) override;
     virtual void Deinitialize() override;
 
-    // Login de un usuario 
     UFUNCTION(BlueprintCallable, Category = "User Management")
-    bool Login(const FString& UserId, const FString& DisplayName, const ELoginProviderType Provider);
+    bool Prueba1(int32 val);
 
-    // Logout del usuario actual 
     UFUNCTION(BlueprintCallable, Category = "User Management")
-    void Logout();
-
-    // Obtiene el usuario actualmente logueado 
-    UFUNCTION(BlueprintCallable, Category = "User Management")
-    const FCacoUser& GetCurrentUser() const;
+    bool Prueba2();
 
     // Obtiene el último usuario logueado 
     UFUNCTION(BlueprintCallable, Category = "User Management")
-    const FCacoUser& GetLastLoggedInUser() const;
+    int32 GetLastLoggedInUserIndex() const;
 
     // Obtiene todos los usuarios guardados en este dispositivo 
     UFUNCTION(BlueprintCallable, Category = "User Management")
-    const TArray<FCacoUser>& GetLocalUsers() const;
-
-    UFUNCTION(BlueprintCallable, Category = "User Management")
-    ELoginProviderType GetLastLoginProvider() const;
+    TMap<int32, FCacoUserStruct>& GetLocalUsers() const;
 
 protected:
-
-    static const FString CacoUserSlotName;
-    
-    UPROPERTY()
-    UCacoUserSave* SaveGameInstance;
-
-    // Usuario actualmente logueado
-    UPROPERTY()
-    FCacoUser CurrentUser;
-
-    // Guarda los usuarios en un archivo local (SaveGame o JSON)
-    void SaveLocalData();
-
-    // Carga los usuarios guardados en el dispositivo
-    void LoadLocalData();
 
     UPROPERTY()
     const UCacoUserSettings* CachedSettings;
