@@ -26,7 +26,8 @@ public:
         if (UGameplayStatics::DoesSaveGameExist(Slot, 0)) {
             return Cast<USaveGameMaster>(UGameplayStatics::LoadGameFromSlot(Slot, 0));
         }
-        return nullptr;
+        //return nullptr;
+        return NewObject<USaveGameMaster>((UObject*)GetTransientPackage(), SaveClass);
     }
 
 protected:

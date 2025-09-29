@@ -13,8 +13,12 @@ class CACOUSERSYSTEM_API USaveGame_LocalUsers : public USaveGameMaster {
 
 public:
 
+    USaveGame_LocalUsers() {
+        LocalUsers = TMap<int32, FCacoUserStruct>();
+    }
+
     UPROPERTY(BlueprintReadWrite)
-    TMap<int32, FCacoUserStruct> LocalUsers;
+    TMap<int32, FCacoUserStruct> LocalUsers = TMap<int32, FCacoUserStruct>();
 
 };
 

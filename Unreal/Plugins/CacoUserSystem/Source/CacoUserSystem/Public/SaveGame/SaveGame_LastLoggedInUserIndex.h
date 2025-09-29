@@ -12,6 +12,8 @@ class CACOUSERSYSTEM_API USaveGame_LastLoggedInUserIndex : public USaveGameMaste
 
 public:
 
+    USaveGame_LastLoggedInUserIndex() : LastLoggedInUserIndex(-1) {}
+
     UPROPERTY(BlueprintReadWrite, Category = "User System")
     int32 LastLoggedInUserIndex = -1;
 

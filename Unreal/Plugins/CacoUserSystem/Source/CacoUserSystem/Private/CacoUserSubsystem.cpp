@@ -2,12 +2,12 @@
 #include "CacoUserSubsystem.h"
 #include "Kismet/GameplayStatics.h"
 #include "Logging/LogMacros.h"
+#include "User/CacoUser.h"
 #include "User/CacoUserSettings.h"
 #include "SaveGame/SaveGame_LastLoggedInUserIndex.h"
 #include "SaveGame/SaveGame_LocalUsers.h"
 
 DEFINE_LOG_CATEGORY_STATIC(LogCacoUserSubsystem, Log, All);
-
 
 
 
@@ -24,10 +24,38 @@ void UCacoUserSubsystem::Deinitialize()
     Super::Deinitialize();
 }
 
-int32 UCacoUserSubsystem::LogIn(int32 UserIndex) {
-    return int32();
+int32 UCacoUserSubsystem::LogIn(int32 inUserIndex) {
+	int32 userIndex = ((inUserIndex == -1) ? GetLastLoggedInUserIndex() : inUserIndex);
+    if (userIndex == -1) {
+        userIndex = CreateNewUser(TEXT("Guest"));
+    }
+    //USaveGame_LocalUsers* localUsers = Cast<USaveGame_LocalUsers>(USaveGameMaster::Load(USaveGame_LocalUsers::StaticClass()));
+
+
+
+    return userIndex;
 }
 
+int32 UCacoUserSubsystem::CreateNewUser(FString DisplayName) {
+    FCacoUserStruct newUserStruct(TEXT(""), TEXT("Guest"));
+
+    USaveGame_LocalUsers* localUsers = Cast<USaveGame_LocalUsers>(USaveGameMaster::Load(USaveGame_LocalUsers::StaticClass()));
+    int32 newUserIndex = localUsers->LocalUsers.Num();
+    localUsers->LocalUsers.Add(newUserIndex, newUserStruct);
+	localUsers->Save();
+
+    return newUserIndex;
+}
+
+bool UCacoUserSubsystem::Prueba() {
+
+
+
+
+
+
+    return false;
+}
 
 
 

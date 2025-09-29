@@ -25,6 +25,11 @@ public:
     UFUNCTION(BlueprintCallable, Category = "CacoUser Management")
     int32 LogIn(int32 UserIndex = -1);
 
+    UFUNCTION(BlueprintCallable, Category = "CacoUser Management")
+    int32 CreateNewUser(FString DisplayName);
+
+    UFUNCTION(BlueprintCallable, Category = "CacoUser Management")
+    bool Prueba();
 
 protected:
 

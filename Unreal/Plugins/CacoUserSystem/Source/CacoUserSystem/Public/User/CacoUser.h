@@ -14,23 +14,18 @@ public:
     // Constructor por defecto
     UCacoUser();
 
-//    void Init2(const FCacoUserStruct& InStruct);
-    void Init2();
-
     // Inicializar desde un FCacoUserStruct
-//    void Init(const FCacoUserStruct& InStruct);
+    void Init(const FCacoUserStruct& InStruct);
 
     // Factory para crear directamente un UCacoUser desde struct
-//    UFUNCTION(BlueprintCallable, Category = "User System")
-//    static UCacoUser* CreateFromStruct(UObject* Outer, const FCacoUserStruct& InStruct);
+    UFUNCTION(BlueprintCallable, Category = "CacoUser System")
+    static UCacoUser* CreateUserFromStruct(UObject* Outer, const FCacoUserStruct& InStruct);
 
-    // Acceso directo a UserId
-//    UFUNCTION(BlueprintPure, Category = "User System")
-//    FString GetUserId() const { return UserId; }
+    UFUNCTION(BlueprintPure, Category = "CacoUser System")
+    FString GetUserId() const;
 
-    // Acceso directo a DisplayName
-//    UFUNCTION(BlueprintPure, Category = "User System")
-//    FString GetDisplayName() const { return DisplayName; }
+    UFUNCTION(BlueprintPure, Category = "CacoUser System")
+    FString GetDisplayName() const;
 
 protected:
 
