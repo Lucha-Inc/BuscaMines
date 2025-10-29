@@ -1,0 +1,97 @@
+{
+    "DisplayNames": {
+        "EOSSDK": "EOS SDK",
+        "EOSSDK-Unversioned": "EOS SDK",
+        "DiscordSocialSDK": "Discord Social SDK",
+        "OVRPlatformSDK": "Meta OVR Platform SDK"
+    },
+    "SupportedVersions": {
+        "EOSSDK": [
+            "41373641-v1.17.0",
+            "39599718-v1.17.0",
+            "36651368-v1.16.4",
+            "35276460-v1.16.3",
+            "32303053-v1.16.3",
+            "32273396-v1.16.2",
+            "30020700-v1.16.1-new",
+            "27379709-v1.16.1",
+            "27024038-v1.16"
+        ],
+        "EOSSDK-Unversioned": [
+            "NotDeterminedAtBuildTime"
+        ],
+        "DevAuthTool": [
+            "1.2.1",
+            "1.2.0",
+            "1.1.0"
+        ],
+        "AntiCheat": [
+            "2.2.0",
+            "2.1.0",
+            "2.0.5",
+            "2.0.3",
+            "2.0.1"
+        ],
+        "DiscordSocialSDK": [
+            "1.3.9273",
+            "1.1.8166"
+        ],
+        "OVRPlatformSDK": [
+            "69.0"
+        ]
+    },
+    "SearchPaths": {
+        "EOSSDK": {
+            "Windows": [
+                "${V:ProjectDirectory}/Plugins/EOS-SDK${V:PlatformSuffix}-${V:FullVersion}/SDK",
+                "${F:CommonApplicationData}/EOS-SDK${V:PlatformSuffix}-${V:FullVersion}/SDK",
+                "${F:CommonApplicationData}/EOS-SDK${V:PlatformSuffix}-${V:FullVersion}/EOS-SDK${V:PlatformSuffix}-${V:FullVersion}/SDK",
+                "${F:UserProfile}/Downloads/EOS-SDK${V:PlatformSuffix}-${V:FullVersion}/SDK",
+                "${F:UserProfile}/Downloads/EOS-SDK${V:PlatformSuffix}-${V:FullVersion}/EOS-SDK${V:PlatformSuffix}-${V:FullVersion}/SDK",
+                "${SYSTEMDRIVE}/EOS-SDK${V:PlatformSuffix}-${V:FullVersion}/SDK"
+            ],
+            "Unix": [
+                "${V:ProjectDirectory}/Plugins/EOS-SDK${V:PlatformSuffix}-${V:FullVersion}/SDK",
+                "${HOME}/Downloads/EOS-SDK${V:PlatformSuffix}-${V:FullVersion}/SDK",
+                "${HOME}/Downloads/EOS-SDK${V:PlatformSuffix}-${V:FullVersion}/EOS-SDK${V:PlatformSuffix}-${V:FullVersion}/SDK"
+            ]
+        },
+        "EOSSDK-Unversioned": {
+            "Windows": [
+                "${V:ModuleDirectory}/../ThirdParty${V:PlatformSuffix}"
+            ],
+            "Unix": [
+                "${V:ModuleDirectory}/../ThirdParty${V:PlatformSuffix}"
+            ]
+        },
+        "DiscordSocialSDK": {
+            "Windows": [
+                "${V:ModuleDirectory}/../ThirdParty-DiscordSocialSdk",
+                "${V:ProjectDirectory}/Plugins/DiscordSocialSdk-${V:FullVersion}/discord_social_sdk",
+                "${F:CommonApplicationData}/DiscordSocialSdk-${V:FullVersion}/discord_social_sdk",
+                "${F:CommonApplicationData}/DiscordSocialSdk-${V:FullVersion}/DiscordSocialSdk-${V:FullVersion}/discord_social_sdk",
+                "${F:UserProfile}/Downloads/DiscordSocialSdk-${V:FullVersion}/discord_social_sdk",
+                "${F:UserProfile}/Downloads/DiscordSocialSdk-${V:FullVersion}/DiscordSocialSdk-${V:FullVersion}/discord_social_sdk",
+                "${SYSTEMDRIVE}/DiscordSocialSdk-${V:FullVersion}/discord_social_sdk"
+            ],
+            "Unix": [
+                "${V:ModuleDirectory}/../ThirdParty-DiscordSocialSdk",
+                "${V:ProjectDirectory}/Plugins/DiscordSocialSdk-${V:FullVersion}/discord_social_sdk",
+                "${HOME}/Downloads/DiscordSocialSdk-${V:FullVersion}/discord_social_sdk",
+                "${HOME}/Downloads/DiscordSocialSdk-${V:FullVersion}/DiscordSocialSdk-${V:FullVersion}/discord_social_sdk"
+            ]
+        },
+        "OVRPlatformSDK": {
+            "Windows": [
+                "${V:ModuleDirectory}/../ThirdParty-OVRPlatformSDK",
+                "${F:CommonApplicationData}/OVRPlatformSDK",
+                "${F:UserProfile}/Downloads/ovr_platform_sdk_${V:FullVersion}",
+                "${SYSTEMDRIVE}/OVRPlatformSDK"
+            ],
+            "Unix": [
+                "${V:ModuleDirectory}/../ThirdParty-OVRPlatformSDK",
+                "${HOME}/Downloads/OVRPlatformSDK"
+            ]
+        }
+    }
+}

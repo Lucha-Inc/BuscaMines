@@ -1,0 +1,46 @@
+Namespace: redpoint.games
+IWYUAnalysis: true
+Rulesets:
+- Name: redpoint-eos-api
+  Severity: Error
+  Rules:
+  - using-namespace-in-namespace
+  - missing-options-assignment
+Rules:
+  # Disallow all 'using namespace' in this module, as we would need to use
+  # per-file namespaces if we did.
+- Name: using-namespace-in-namespace
+  Matcher: |
+    namespaceDecl(
+      unless(isAnonymous()),
+      has(usingDirectiveDecl(unless(isImplicit())).bind("using_decl"))
+    )
+  ErrorMessage: |
+    'using namespace' is not permitted in this module
+  Callsite: using_decl
+- Name: missing-options-assignment
+  Matcher: |
+    functionDecl(
+      hasName("MapOptions"),
+      hasParameter(0, parmVarDecl(
+        hasName("NativeOptions"),
+        hasTypeLoc(loc(qualType(hasCanonicalType(qualType(references(cxxRecordDecl(
+          forEach(fieldDecl(
+            unless(matchesName("(ApiVersion|(.+)Count|(.+)_DEPRECATED)"))
+          ).bind("declared_field"))
+        )))))))
+      )),
+      hasBody(stmt(forNoDescendant(
+        binaryOperator(
+          hasOperatorName("="),
+          hasDescendant(
+            memberExpr(member(fieldDecl(equalsBoundNode("declared_field"))))
+          )
+        )
+      )))
+    ).bind("function")
+  ErrorMessage: |
+    missing assignment to native options field
+  Callsite: function
+  Hints:
+    declared_field: the missing field is declared here

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root xmlns:android="http://schemas.android.com/apk/res/android">
+    <gameActivityClassAdditions>
+        <insert>
+            public void initEOSSDK()
+            {
+                EOSSDK.init(this);
+            }
+        </insert>
+    </gameActivityClassAdditions>
+    
+    <buildGradleAdditions>
+        <insert>
+            dependencies {
+                implementation 'androidx.appcompat:appcompat:1.5.1'
+                implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+                implementation 'androidx.security:security-crypto:1.0.0'
+                implementation 'androidx.browser:browser:1.4.0'
+                implementation 'androidx.webkit:webkit:1.7.0'
+            }
+        </insert>
+    </buildGradleAdditions>
+</root>

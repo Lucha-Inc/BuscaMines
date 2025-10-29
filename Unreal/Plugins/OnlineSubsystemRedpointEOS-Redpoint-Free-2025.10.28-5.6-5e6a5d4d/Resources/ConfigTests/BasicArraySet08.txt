@@ -1,0 +1,14 @@
+[CoreTest]
+!A=ClearArray
++A=1
++A=2
++A=3
++A=4
+---
+A:CoreTest:A:1;;;2;;;3
+---
+[CoreTest]
+!A=ClearArray
++A=1
++A=2
++A=3

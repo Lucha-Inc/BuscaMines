@@ -1,0 +1,95 @@
+apply from: "config.gradle"
+
+android {
+	namespace versions.namespace
+
+	compileSdkVersion = versions.compileSdk
+	buildToolsVersion = versions.buildTools
+	
+	defaultConfig {
+		applicationId versions.appId
+		
+		minSdkVersion versions.minSdk
+		targetSdkVersion versions.targetSdk
+		
+		versionCode 1
+		versionName "1.0"
+		
+		splits {
+			abi {
+				enable true
+				reset()
+				include 'arm64-v8a', 'armeabi-v7a', 'x86', 'x86_64'
+				universalApk false
+			}
+		}
+
+		externalNativeBuild {
+			cmake {
+				cppFlags "-std=c++17 -malign-double"
+			}
+		}
+		
+		String lowerCaseClientId = ClientId.toLowerCase().substring(1, ClientId.length() - 1)
+		resValue("string", "eos_login_protocol_scheme", "eos." + lowerCaseClientId)
+
+	}
+	
+	buildFeatures {
+		buildConfig = true
+	}
+
+	signingConfigs {
+		debug {
+			storeFile rootProject.file('eossdkSampleKeystore.keystore')
+			keyAlias 'androiddebugkey'
+			keyPassword 'android'
+			storePassword 'android'
+		}
+	}
+
+	externalNativeBuild {
+		cmake {
+			version versions.cmake
+		}
+	}
+	
+	buildTypes {
+		buildTypes.each {
+			it.buildConfigField 'String', 'ProductId', ProductId
+			it.buildConfigField 'String', 'SandboxId', SandboxId
+			it.buildConfigField 'String', 'DeploymentId', DeploymentId
+			it.buildConfigField 'String', 'ClientId', ClientId
+			it.buildConfigField 'String', 'ClientSecret', ClientSecret
+			it.buildConfigField 'Boolean', 'SimulateCrash', SimulateCrash
+		}
+		release {
+			minifyEnabled false
+			signingConfig signingConfigs.debug
+		}
+		debug {
+			signingConfig signingConfigs.debug
+		}
+	}
+
+	compileOptions {
+		sourceCompatibility versions.java
+		targetCompatibility versions.java
+	}
+	
+	sourceSets {
+		main {
+			jniLibs.srcDirs = ["jniLibs"]
+		}
+	}
+}
+
+dependencies {
+	implementation androidXLibraries.constraintLayout
+	implementation androidXLibraries.appCompat
+	implementation androidXLibraries.securityCrypto
+	implementation androidXLibraries.browser
+	implementation androidXLibraries.webkit
+	
+	implementation otherLibraries.material
+}

@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root xmlns:android="http://schemas.android.com/apk/res/android">
+	<init>
+		<setStringFromProperty result="ClientId" ini="Engine" section="EpicOnlineServices" property="ClientId" default="THIS_APP_DOES_NOT_SUPPORT_EAS" />
+
+		<!-- Get settings from the config files to see whether this project is packaging for Meta Quest devices. -->
+		<setBoolFromPropertyContains
+            result="bPackageForOculusQuest"
+            ini="Engine"
+            section="/Script/AndroidRuntimeSettings.AndroidRuntimeSettings"
+            property="PackageForOculusMobile"
+            contains="Quest"/>
+		<setBoolFromPropertyContains
+            result="bPackageForOculusQuest2"
+            ini="Engine"
+            section="/Script/AndroidRuntimeSettings.AndroidRuntimeSettings"
+            property="PackageForOculusMobile"
+            contains="Quest2"/>
+		<setBoolFromProperty
+            result="bPackageForMetaQuest"
+            ini="Engine"
+            section="/Script/AndroidRuntimeSettings.AndroidRuntimeSettings"
+            property="bPackageForMetaQuest"
+            default="false"/>
+
+		<!-- Determine if any of the config settings for Meta Quest are enabled, since the config file properties have changed between engine versions. -->
+		<setBool result="bRedpointIsPackagingForMetaDevice" value="false" />
+		<setBoolOr result="bRedpointIsPackagingForMetaDevice" arg1="$B(bRedpointIsPackagingForMetaDevice)" arg2="$B(bPackageForOculusQuest)" />
+		<setBoolOr result="bRedpointIsPackagingForMetaDevice" arg1="$B(bRedpointIsPackagingForMetaDevice)" arg2="$B(bPackageForOculusQuest2)" />
+		<setBoolOr result="bRedpointIsPackagingForMetaDevice" arg1="$B(bRedpointIsPackagingForMetaDevice)" arg2="$B(bPackageForMetaQuest)" />
+		<if condition="bRedpointIsPackagingForMetaDevice">
+			<true>
+				<log text="EOS SDK (Android): Packaging Android application for Meta Quest." />
+			</true>
+			<false>
+				<log text="EOS SDK (Android): Packaging Android application for Google Play." />
+			</false>
+		</if>
+
+		<!-- The only way to lowercase this string... -->
+		<setStringReplace result="ClientId" source="$S(ClientId)" find="A" with="a"/>
+		<setStringReplace result="ClientId" source="$S(ClientId)" find="B" with="b"/>
+		<setStringReplace result="ClientId" source="$S(ClientId)" find="C" with="c"/>
+		<setStringReplace result="ClientId" source="$S(ClientId)" find="D" with="d"/>
+		<setStringReplace result="ClientId" source="$S(ClientId)" find="E" with="e"/>
+		<setStringReplace result="ClientId" source="$S(ClientId)" find="F" with="f"/>
+		<setStringReplace result="ClientId" source="$S(ClientId)" find="G" with="g"/>
+		<setStringReplace result="ClientId" source="$S(ClientId)" find="H" with="h"/>
+		<setStringReplace result="ClientId" source="$S(ClientId)" find="I" with="i"/>
+		<setStringReplace result="ClientId" source="$S(ClientId)" find="J" with="j"/>
+		<setStringReplace result="ClientId" source="$S(ClientId)" find="K" with="k"/>
+		<setStringReplace result="ClientId" source="$S(ClientId)" find="L" with="l"/>
+		<setStringReplace result="ClientId" source="$S(ClientId)" find="M" with="m"/>
+		<setStringReplace result="ClientId" source="$S(ClientId)" find="N" with="n"/>
+		<setStringReplace result="ClientId" source="$S(ClientId)" find="O" with="o"/>
+		<setStringReplace result="ClientId" source="$S(ClientId)" find="P" with="p"/>
+		<setStringReplace result="ClientId" source="$S(ClientId)" find="Q" with="q"/>
+		<setStringReplace result="ClientId" source="$S(ClientId)" find="R" with="r"/>
+		<setStringReplace result="ClientId" source="$S(ClientId)" find="S" with="s"/>
+		<setStringReplace result="ClientId" source="$S(ClientId)" find="T" with="t"/>
+		<setStringReplace result="ClientId" source="$S(ClientId)" find="U" with="u"/>
+		<setStringReplace result="ClientId" source="$S(ClientId)" find="V" with="v"/>
+		<setStringReplace result="ClientId" source="$S(ClientId)" find="W" with="w"/>
+		<setStringReplace result="ClientId" source="$S(ClientId)" find="X" with="x"/>
+		<setStringReplace result="ClientId" source="$S(ClientId)" find="Y" with="y"/>
+		<setStringReplace result="ClientId" source="$S(ClientId)" find="Z" with="z"/>
+	</init>
+
+	<!-- 
+        Add the OUTPUT_PATH (i.e. Binaries/Android) as a repository for Gradle. The UBT module will
+        mark the "eossdk.aar" file as a RuntimeDependency to be copied out to the target output
+        directory, which will ensure it is located in this folder.
+
+        The "eossdk.aar" is consistent as it will be renamed from whatever the UBT module discovers
+        it as to "eossdk.aar" in the RuntimeDependency entry.
+    -->
+	<baseBuildGradleAdditions>
+		<insert>
+			allprojects {
+			repositories {
+			repositories {
+			flatDir {
+			dirs OUTPUT_PATH
+			}
+			}
+			}
+			}
+		</insert>
+	</baseBuildGradleAdditions>
+
+	<!-- 
+        Actually add the dependency on 'eossdk.aar' now that the repository has been set up. 
+    -->
+	<buildGradleAdditions>
+		<insert>
+			dependencies.implementation(name: 'eossdk', ext: 'aar');
+		</insert>
+	</buildGradleAdditions>
+
+	<!-- 
+        Require the EOSSDK.so dynamic library to load successfully on startup. This is bundled 
+        inside eossdk.aar. 
+    -->
+	<soLoadLibrary>
+		<loadLibrary name="EOSSDK" failmsg="The EOS SDK could not be loaded, and is required to run the application." />
+	</soLoadLibrary>
+
+	<!-- 
+        The EOS SDK requires AndroidX. Rename any of the legacy Android Java namespaces present in the
+        Android template code that ships with the engine to use the AndroidX version instead.
+    -->
+	<baseBuildGradleAdditions>
+		<insert>
+			allprojects {
+			def mappings = [
+			'android.support.annotation': 'androidx.annotation',
+			'android.arch.lifecycle': 'androidx.lifecycle',
+			'android.support.v4.app.NotificationCompat': 'androidx.core.app.NotificationCompat',
+			'android.support.v4.app.NotificationManagerCompat': 'androidx.core.app.NotificationManagerCompat',
+			'android.support.v4.app.ActivityCompat': 'androidx.core.app.ActivityCompat',
+			'android.support.v4.content.ContextCompat': 'androidx.core.content.ContextCompat',
+			'android.support.v13.app.FragmentCompat': 'androidx.legacy.app.FragmentCompat',
+			'android.support.v4.content.FileProvider': 'androidx.core.content.FileProvider',
+			'android.arch.lifecycle.Lifecycle': 'androidx.lifecycle.Lifecycle',
+			'android.arch.lifecycle.LifecycleObserver': 'androidx.lifecycle.LifecycleObserver',
+			'android.arch.lifecycle.OnLifecycleEvent': 'androidx.lifecycle.OnLifecycleEvent',
+			'android.arch.lifecycle.ProcessLifecycleOwner': 'androidx.lifecycle.ProcessLifecycleOwner',
+			]
+
+			beforeEvaluate { project ->
+			project.rootProject.projectDir.traverse(type: groovy.io.FileType.FILES, nameFilter: ~/.*\.java$/) { f ->
+			mappings.each { entry ->
+			if (f.getText('UTF-8').contains(entry.key)) {
+			println "Updating ${entry.key} to ${entry.value} in file ${f}"
+			ant.replace(file: f, token: entry.key, value: entry.value)
+			}
+			}
+			}
+			}
+			}
+		</insert>
+	</baseBuildGradleAdditions>
+
+	<!-- 
+        Tell Gradle to enable AndroidX, which the EOS SDK requires.
+    -->
+	<gradleProperties>
+		<insert>
+			android.useAndroidX=true
+			android.enableJetifier=true
+		</insert>
+	</gradleProperties>
+
+	<!-- 
+        Wrangle permissions and other settings in the Android manifest necessary for the EOS SDK to work.
+    -->
+	<androidManifestUpdates>
+		<addAttribute tag="application" name="android:theme" value="@style/UnrealBaseTheme" />
+
+		<setStringFromAttribute result="PackageName" tag="manifest" name="package"/>
+
+		<setElement result="SignInHubActivity" value="activity" />
+		<addAttribute tag="$SignInHubActivity" name="android:name" value="com.google.android.gms.auth.api.signin.internal.SignInHubActivity" />
+		<addAttribute tag="$SignInHubActivity" name="android:excludeFromRecents" value="true" />
+		<addAttribute tag="$SignInHubActivity" name="android:exported" value="false" />
+		<addAttribute tag="$SignInHubActivity" name="android:theme" value="@android:style/Theme.Translucent.NoTitleBar" />
+		<addElement tag="application" name="SignInHubActivity" />
+
+		<setElement result="RevokeService" value="service" />
+		<addAttribute tag="$RevokeService" name="android:name" value="com.google.android.gms.auth.api.signin.RevocationBoundService" />
+		<addAttribute tag="$RevokeService" name="android:exported" value="true" />
+		<addAttribute tag="$RevokeService" name="android:permission" value="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION" />
+		<addElement tag="application" name="RevokeService" />
+
+		<setElement result="GoogleApiActivity" value="activity" />
+		<addAttribute tag="$GoogleApiActivity" name="android:name" value="com.google.android.gms.common.api.GoogleApiActivity" />
+		<addAttribute tag="$GoogleApiActivity" name="android:exported" value="false" />
+		<addAttribute tag="$GoogleApiActivity" name="android:theme" value="@android:style/Theme.Translucent.NoTitleBar" />
+		<addElement tag="application" name="GoogleApiActivity" />
+
+		<!-- Add permissions -->
+		<addPermission android:name="android.permission.INTERNET" />
+		<addPermission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+	</androidManifestUpdates>
+
+	<!-- 
+        Wire up the "Epic Games" login scheme, fix up a bunch of incorrect styling references, and fix
+        up some calls in the default DownloaderService.java that need to be adjusted for the minimum
+        Android SDK version that the EOS SDK requires.
+    -->
+	<buildGradleAdditions>
+		<insert>
+			android {
+			preBuild {
+			doFirst {
+		</insert>
+		<insertValue value="def stringDefine = &quot;&lt;string name=\&quot;eos_login_protocol_scheme\&quot;&gt;eos.$S(ClientId)&lt;/string&gt;&quot;"/>
+		<insertNewline />
+		<insert>
+
+			def stringsXml = new File("${project.projectDir}/src/main/res/values/strings.xml")
+			if (stringsXml.exists() &amp;&amp; !stringsXml.text.contains(stringDefine)) {
+			println "Adding eos_login_protocol_scheme string to strings.xml"
+			stringsXml.text = stringsXml.text.replaceAll(
+			"&lt;/resources&gt;",
+			stringDefine + "&lt;/resources&gt;"
+			)
+			}
+
+			def stylesXml = new File("${project.projectDir}/src/main/res/values/styles.xml")
+			if (stylesXml.exists() &amp;&amp; !stylesXml.text.contains("@style/Theme.AppCompat.NoActionBar")) {
+			println "Fixing up styles in values/styles.xml"
+			stylesXml.text = stylesXml.text.replaceAll(
+			"@android:style/Theme.Black.NoTitleBar.Fullscreen\&quot; /&gt;",
+			"Theme.AppCompat.NoActionBar\&quot;&gt;&lt;item name=\&quot;android:windowNoTitle\&quot;&gt;true&lt;/item&gt;&lt;item name=\&quot;android:windowActionBar\&quot;&gt;false&lt;/item&gt;&lt;item name=\&quot;android:windowFullscreen\&quot;&gt;true&lt;/item&gt;&lt;item name=\&quot;android:windowContentOverlay\&quot;&gt;@null&lt;/item&gt;&lt;/style&gt;"
+			)
+			}
+
+			def stylesLandXml = new File("${project.projectDir}/src/main/res/values-land/styles.xml")
+			if (stylesLandXml.exists() &amp;&amp; !stylesLandXml.text.contains("@style/Theme.AppCompat.NoActionBar")) {
+			println "Fixing up styles in values-land/styles.xml"
+			stylesLandXml.text = stylesLandXml.text.replaceAll(
+			"@android:style/Theme.Black.NoTitleBar.Fullscreen\&quot; /&gt;",
+			"Theme.AppCompat.NoActionBar\&quot;&gt;&lt;item name=\&quot;android:windowNoTitle\&quot;&gt;true&lt;/item&gt;&lt;item name=\&quot;android:windowActionBar\&quot;&gt;false&lt;/item&gt;&lt;item name=\&quot;android:windowFullscreen\&quot;&gt;true&lt;/item&gt;&lt;item name=\&quot;android:windowContentOverlay\&quot;&gt;@null&lt;/item&gt;&lt;/style&gt;"
+			)
+			}
+
+			def stylesPortXml = new File("${project.projectDir}/src/main/res/values-port/styles.xml")
+			if (stylesPortXml.exists() &amp;&amp; !stylesPortXml.text.contains("@style/Theme.AppCompat.NoActionBar")) {
+			println "Fixing up styles in values-port/styles.xml"
+			stylesPortXml.text = stylesPortXml.text.replaceAll(
+			"@android:style/Theme.Black.NoTitleBar.Fullscreen\&quot; /&gt;",
+			"Theme.AppCompat.NoActionBar\&quot;&gt;&lt;item name=\&quot;android:windowNoTitle\&quot;&gt;true&lt;/item&gt;&lt;item name=\&quot;android:windowActionBar\&quot;&gt;false&lt;/item&gt;&lt;item name=\&quot;android:windowFullscreen\&quot;&gt;true&lt;/item&gt;&lt;item name=\&quot;android:windowContentOverlay\&quot;&gt;@null&lt;/item&gt;&lt;/style&gt;"
+			)
+			}
+
+			def localNotificationReceiverJava = new File("${project.projectDir}/src/main/java/com/epicgames/unreal/LocalNotificationReceiver.java")
+			if (localNotificationReceiverJava.exists() &amp;&amp; !localNotificationReceiverJava.text.contains("/* fixup 1 */")) {
+			println "Fixing up PendingIntent in LocalNotificationReceiver.java"
+			localNotificationReceiverJava.text = localNotificationReceiverJava.text.replace(
+			"getActivity(context, notificationID, notificationIntent, 0)",
+			"getActivity(context, notificationID, notificationIntent, PendingIntent.FLAG_IMMUTABLE /* fixup 1 */)"
+			)
+			}
+
+			def downloaderServiceJava = new File("${project.projectDir}/src/main/java/com/epicgames/unreal/LocalNotificationReceiver.java")
+			if (downloaderServiceJava.exists() &amp;&amp; !downloaderServiceJava.text.contains("/* fixup 2 */")) {
+			println "Fixing up PendingIntent in DownloaderService.java"
+			downloaderServiceJava.text = downloaderServiceJava.text.replace(
+			"PendingIntent.FLAG_ONE_SHOT)",
+			"PendingIntent.FLAG_ONE_SHOT | PendingIntent.FLAG_IMMUTABLE /* fixup 2 */)"
+			)
+			}
+
+			def gameActivityJava = new File("${project.projectDir}/src/main/java/com/epicgames/unreal/GameActivity.java")
+			if (gameActivityJava.exists() &amp;&amp; !gameActivityJava.text.contains("/* fixup 3 */")) {
+			println "Fixing up PendingIntent in DownloaderService.java"
+			gameActivityJava.text = gameActivityJava.text.replace(
+			"PendingIntent.FLAG_UPDATE_CURRENT",
+			"PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE /* fixup 3 */"
+			)
+			}
+
+			def packageDir = PACKAGE_NAME.replace(".", "/")
+
+			def downloaderActivityJava = new File("${project.projectDir}/src/main/java/${packageDir}/DownloaderActivity.java")
+			if (downloaderActivityJava.exists() &amp;&amp; !downloaderActivityJava.text.contains("/* fixup 4 */")) {
+			println "Fixing up PendingIntent in DownloaderService.java"
+			downloaderActivityJava.text = downloaderActivityJava.text.replace(
+			"PendingIntent.FLAG_UPDATE_CURRENT",
+			"PendingIntent.FLAG_UPDATE_CURRENT | PendingIntent.FLAG_IMMUTABLE /* fixup 4 */"
+			)
+			}
+			}
+			}
+			}
+
+			android {
+			packagingOptions {
+			exclude 'build-data.properties'
+			}
+			}
+		</insert>
+	</buildGradleAdditions>
+
+	<!--
+        Add the minimal code we need to initialize the EOS SDK on any Android platform (both
+        Oculus Quest and Google Play).
+    -->
+	<gameActivityImportAdditions>
+		<insert>
+			import com.epicgames.mobile.eossdk.EOSSDK;
+		</insert>
+	</gameActivityImportAdditions>
+	<gameActivityOnCreateAdditions>
+		<insert>
+			Log.debug("Setting EOS internal directory to: " + InternalFilesDir);
+			Log.debug("Setting EOS external directory to: " + ExternalFilesDir);
+			this.nativeSetEOSCacheDirectories(InternalFilesDir, ExternalFilesDir);
+
+			Log.debug("Initializing the EOS SDK on Android...");
+			this.initEOSSDK();
+		</insert>
+	</gameActivityOnCreateAdditions>
+	<gameActivityClassAdditions>
+		<insert>
+			public native void nativeSetEOSCacheDirectories(String InternalPath, String ExternalPath);
+		</insert>
+	</gameActivityClassAdditions>
+
+	<!--
+        Provide a runtime function accessible via JNI that reports whether this Android
+        application was packaged for Meta Quest or not. This allows the OnlineSubsystemRedpointGoogle
+        module to skip registration of the online subsystem if we're running on Meta Quest.
+    -->
+	<gameActivityClassAdditions>
+		<if condition="bRedpointIsPackagingForMetaDevice">
+			<true>
+				<insert>
+					public boolean Thunk_Redpoint_IsOculus()
+					{
+					return true;
+					}
+				</insert>
+			</true>
+			<false>
+				<insert>
+					public boolean Thunk_Redpoint_IsOculus()
+					{
+					return false;
+					}
+				</insert>
+			</false>
+		</if>
+	</gameActivityClassAdditions>
+
+	<!-- 
+        If we're not packaging for Meta devices, add a dependency on Google Play Billing so
+        that we can provide e-commerce support.
+    -->
+	<buildGradleAdditions>
+		<if condition="bRedpointIsPackagingForMetaDevice">
+			<false>
+				<insert>
+					dependencies {
+					implementation 'com.google.android.gms:play-services-auth:20.4.1'
+					implementation 'com.google.android.gms:play-services-gcm:17.0.0'
+					implementation 'com.google.android.gms:play-services-location:21.0.1'
+					implementation 'com.android.billingclient:billing:8.0.0'
+					}
+				</insert>
+			</false>
+		</if>
+	</buildGradleAdditions>
+
+	<!-- 
+        If we're not packaging for Meta devices, add all of our runtime code and hooks so that
+        the RedpointGoogleLogin class (which provides Google Play e-commerce) can work at runtime.
+    -->
+	<gameActivityImportAdditions>
+		<if condition="bRedpointIsPackagingForMetaDevice">
+			<false>
+				<insert>
+					import games.redpoint.RedpointGoogleLogin;
+				</insert>
+			</false>
+		</if>
+	</gameActivityImportAdditions>
+	<gameActivityOnCreateAdditions>
+		<if condition="bRedpointIsPackagingForMetaDevice">
+			<false>
+				<insert>
+
+					Log.debug("Setting up for Google login on Android...");
+					redpointGoogleLogin = new RedpointGoogleLogin(this, getPackageName(), BuildConfiguration);
+				</insert>
+			</false>
+		</if>
+	</gameActivityOnCreateAdditions>
+	<gameActivityOnDestroyAdditions>
+		<if condition="bRedpointIsPackagingForMetaDevice">
+			<false>
+				<insert>
+					if (redpointGoogleLogin != null)
+					{
+					redpointGoogleLogin.onDestroy();
+					}
+				</insert>
+			</false>
+		</if>
+	</gameActivityOnDestroyAdditions>
+	<gameActivityOnStartAdditions>
+		<if condition="bRedpointIsPackagingForMetaDevice">
+			<false>
+				<insert>
+					if (redpointGoogleLogin != null)
+					{
+					redpointGoogleLogin.onStart();
+					}
+				</insert>
+			</false>
+		</if>
+	</gameActivityOnStartAdditions>
+	<gameActivityOnResumeAdditions>
+		<if condition="bRedpointIsPackagingForMetaDevice">
+			<false>
+				<insert>
+					if (redpointGoogleLogin != null)
+					{
+					redpointGoogleLogin.onResume();
+					}
+				</insert>
+			</false>
+		</if>
+	</gameActivityOnResumeAdditions>
+	<gameActivityOnStopAdditions>
+		<if condition="bRedpointIsPackagingForMetaDevice">
+			<false>
+				<insert>
+					if (redpointGoogleLogin != null)
+					{
+					redpointGoogleLogin.onStop();
+					}
+				</insert>
+			</false>
+		</if>
+	</gameActivityOnStopAdditions>
+	<gameActivityOnActivityResultAdditions>
+		<if condition="bRedpointIsPackagingForMetaDevice">
+			<false>
+				<insert>
+					if (redpointGoogleLogin != null)
+					{
+					redpointGoogleLogin.onActivityResult(requestCode, resultCode, data);
+					}
+				</insert>
+			</false>
+		</if>
+	</gameActivityOnActivityResultAdditions>
+	<gameActivityClassAdditions>
+		<if condition="bRedpointIsPackagingForMetaDevice">
+			<false>
+				<insert>
+					private RedpointGoogleLogin redpointGoogleLogin;
+					public RedpointGoogleLogin getRedpointGoogleLogin() { return redpointGoogleLogin; }
+
+					public int Thunk_RedpointGoogle_Login(String[] inClientIds, String inServerClientId)
+					{
+					redpointGoogleLogin.login(inClientIds, inServerClientId);
+					return 0;
+					}
+
+					public int Thunk_RedpointGoogle_Logout()
+					{
+					redpointGoogleLogin.logout();
+					return 0;
+					}
+
+					public int Thunk_RedpointGoogle_QueryOffersById(int inDispatchId, String[] inOfferIds)
+					{
+					redpointGoogleLogin.queryOffersById(inDispatchId, inOfferIds);
+					return 0;
+					}
+
+					public int Thunk_RedpointGoogle_InitiatePurchase(int inDispatchId, String purchaseGuid, String[] inOfferIds, int[] inQuantity)
+					{
+					redpointGoogleLogin.initiatePurchase(inDispatchId, purchaseGuid, inOfferIds, inQuantity);
+					return 0;
+					}
+
+					public int Thunk_RedpointGoogle_AcknowledgePurchase(int inDispatchId, String purchaseGuid)
+					{
+					redpointGoogleLogin.acknowledgePurchase(inDispatchId, purchaseGuid);
+					return 0;
+					}
+
+					public int Thunk_RedpointGoogle_ConsumePurchase(int inDispatchId, String purchaseGuid)
+					{
+					redpointGoogleLogin.consumePurchase(inDispatchId, purchaseGuid);
+					return 0;
+					}
+
+					public int Thunk_RedpointGoogle_QueryReceipts(int inDispatchId)
+					{
+					redpointGoogleLogin.queryReceipts(inDispatchId);
+					return 0;
+					}
+				</insert>
+			</false>
+		</if>
+	</gameActivityClassAdditions>
+
+	<!--
+        Copy Java files based on whether we're packaging for Google Play or Meta Quest. 
+    -->
+	<prebuildCopies>
+		<if condition="bRedpointIsPackagingForMetaDevice">
+			<false>
+				<log text="Copying Redpoint Google integration Java files"/>
+				<copyDir src="$S(PluginDir)/../RedpointEOSSDK/Java/Google" dst="$S(BuildDir)/src/games/redpoint" />
+			</false>
+			<true>
+				<log text="Copying Redpoint Meta Quest integration Java files"/>
+				<copyDir src="$S(PluginDir)/../RedpointEOSSDK/Java/MetaQuest" dst="$S(BuildDir)/src/games/redpoint" />
+			</true>
+		</if>
+	</prebuildCopies>
+
+	<!--
+        Prevent ProGuard from stripping out any of the supporting Google Play
+        e-commerce code.
+    -->
+	<proguardAdditions>
+		<if condition="bRedpointIsPackagingForMetaDevice">
+			<false>
+				<insert>
+					-keep class games.redpoint.RedpointGoogleLogin.** {
+					public *;
+					}
+				</insert>
+			</false>
+		</if>
+	</proguardAdditions>
+
+</root>

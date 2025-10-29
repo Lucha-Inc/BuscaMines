@@ -1,0 +1,19 @@
+[CoreTest]
+!A=ClearArray
++A=1 // Some important comment
++A={Multi
+Line
+Value} // We'll remove this
++A=Blah
++A=Test // We'll remove this
++A=Hello // Another important comment
++A=World
+---
+A:CoreTest:A:Hello;;;World;;;1;;;Blah
+---
+[CoreTest]
+!A=ClearArray
++A=Hello // Another important comment
++A=World
++A=1 // Some important comment
++A=Blah

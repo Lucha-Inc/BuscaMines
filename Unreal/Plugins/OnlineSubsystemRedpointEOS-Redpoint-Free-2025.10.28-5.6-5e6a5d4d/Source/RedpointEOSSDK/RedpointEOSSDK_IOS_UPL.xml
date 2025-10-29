@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <init>
+    <setStringFromProperty result="ClientId" ini="Engine" section="EpicOnlineServices" property="ClientId" default="THIS_APP_DOES_NOT_SUPPORT_EAS" />
+
+    <!-- The only way to lowercase this string... -->
+    <setStringReplace result="ClientId" source="$S(ClientId)" find="A" with="a"/>
+    <setStringReplace result="ClientId" source="$S(ClientId)" find="B" with="b"/>
+    <setStringReplace result="ClientId" source="$S(ClientId)" find="C" with="c"/>
+    <setStringReplace result="ClientId" source="$S(ClientId)" find="D" with="d"/>
+    <setStringReplace result="ClientId" source="$S(ClientId)" find="E" with="e"/>
+    <setStringReplace result="ClientId" source="$S(ClientId)" find="F" with="f"/>
+    <setStringReplace result="ClientId" source="$S(ClientId)" find="G" with="g"/>
+    <setStringReplace result="ClientId" source="$S(ClientId)" find="H" with="h"/>
+    <setStringReplace result="ClientId" source="$S(ClientId)" find="I" with="i"/>
+    <setStringReplace result="ClientId" source="$S(ClientId)" find="J" with="j"/>
+    <setStringReplace result="ClientId" source="$S(ClientId)" find="K" with="k"/>
+    <setStringReplace result="ClientId" source="$S(ClientId)" find="L" with="l"/>
+    <setStringReplace result="ClientId" source="$S(ClientId)" find="M" with="m"/>
+    <setStringReplace result="ClientId" source="$S(ClientId)" find="N" with="n"/>
+    <setStringReplace result="ClientId" source="$S(ClientId)" find="O" with="o"/>
+    <setStringReplace result="ClientId" source="$S(ClientId)" find="P" with="p"/>
+    <setStringReplace result="ClientId" source="$S(ClientId)" find="Q" with="q"/>
+    <setStringReplace result="ClientId" source="$S(ClientId)" find="R" with="r"/>
+    <setStringReplace result="ClientId" source="$S(ClientId)" find="S" with="s"/>
+    <setStringReplace result="ClientId" source="$S(ClientId)" find="T" with="t"/>
+    <setStringReplace result="ClientId" source="$S(ClientId)" find="U" with="u"/>
+    <setStringReplace result="ClientId" source="$S(ClientId)" find="V" with="v"/>
+    <setStringReplace result="ClientId" source="$S(ClientId)" find="W" with="w"/>
+    <setStringReplace result="ClientId" source="$S(ClientId)" find="X" with="x"/>
+    <setStringReplace result="ClientId" source="$S(ClientId)" find="Y" with="y"/>
+    <setStringReplace result="ClientId" source="$S(ClientId)" find="Z" with="z"/>
+
+    <log text="EOS SDK (IOS): Adding URL handler to Info.plist..."/>
+  </init>
+  <iosPListUpdates>
+    <!-- Only add EOS scheme if the application actually has a client ID configured. -->
+    <setBoolIsEqual result="bEASIsEnabled" arg1="$S(ClientId)" arg2="this_app_does_not_support_eas" />
+    <if condition="bEASIsEnabled">
+      <false>
+
+        <!-- Loop through all of the "dict" elements in the Info.plist. -->
+        <loopElements tag="dict">
+
+          <!-- bReqKey tracks whether we have found the "CFBundleURLTypes" key in this dictionary. -->
+          <setBool result="bReqKey" value="false" />
+
+          <!-- Now loop through all of the children in this dictionary. Each element will be a key/value pair sequence. -->
+          <loopElements tag="$">
+
+            <!-- Get the tag name; this allows us to detect if it's <key>. -->
+            <setStringFromTag result="TagName" tag="$" />
+
+            <!-- Are we a <key> ? -->
+            <setBoolIsEqual result="bIsKey" arg1="$S(TagName)" arg2="key" />
+            <!-- If we are a key, check to see if we're the right kind of key. -->
+            <if condition="bIsKey">
+              <true>
+                <!-- Get the contents of the <key> and store it in TagValue. -->
+                <setStringFromTagText result="TagValue" tag="$" />
+                <!-- 
+              Mark bReqKey true if we're a CFBundleURLTypes key. 
+              
+              bReqKey gets set to false:
+              - When we first start iterating through the dictionary.
+              - Whenever we come across another <key> that isn't CFBundleURLTypes.
+              
+              So it will always correctly be false when processing <array> tags if the immediate
+              preceeding <key> is not CFBundleURLTypes.
+            -->
+                <setBoolIsEqual result="bReqKey" arg1="$S(TagValue)" arg2="CFBundleURLTypes"/>
+              </true>
+            </if>
+
+            <!-- Are we an <array> ? -->
+            <setBoolIsEqual result="bIsArray" arg1="$S(TagName)" arg2="array" />
+            <!-- If we are an array... -->
+            <if condition="bIsArray">
+              <true>
+                <!-- ... also check that we saw the CFBundleURLTypes before this. -->
+                <if condition="bReqKey">
+                  <true>
+                    <!-- Now we have to make our dictionary entry. We can't just use <addElements> because we need to set the client ID deeply inside it. -->
+
+                    <setElement result="dict_settings" value="dict" />
+
+                    <setElement result="key_CFBundleTypeRole" value="key" text="CFBundleTypeRole"/>
+                    <setElement result="string_Editor" value="string" text="Editor"/>
+                    <addElement tag="$dict_settings" name="key_CFBundleTypeRole" />
+                    <addElement tag="$dict_settings" name="string_Editor" />
+
+                    <setElement result="key_CFBundleURLName" value="key" text="CFBundleURLName"/>
+                    <setElement result="string_BundleIdentifier" value="string" text="$(PRODUCT_BUNDLE_IDENTIFIER).eos"/>
+                    <addElement tag="$dict_settings" name="key_CFBundleURLName" />
+                    <addElement tag="$dict_settings" name="string_BundleIdentifier" />
+
+                    <setElement result="key_CFBundleURLSchemes" value="key" text="CFBundleURLSchemes"/>
+                    <setElement result="array_schemes" value="array"/>
+                    <setElement result="string_scheme0" value="string" text="eos.$S(ClientId)" />
+                    <addElement tag="$array_schemes" name="string_scheme0" />
+                    <addElement tag="$dict_settings" name="key_CFBundleURLSchemes" />
+                    <addElement tag="$dict_settings" name="array_schemes" />
+
+                    <addElement tag="$" name="dict_settings"/>
+                  </true>
+                </if>
+              </true>
+            </if>
+
+          </loopElements>
+
+        </loopElements>
+
+      </false>
+    </if>
+  </iosPListUpdates>
+</root>

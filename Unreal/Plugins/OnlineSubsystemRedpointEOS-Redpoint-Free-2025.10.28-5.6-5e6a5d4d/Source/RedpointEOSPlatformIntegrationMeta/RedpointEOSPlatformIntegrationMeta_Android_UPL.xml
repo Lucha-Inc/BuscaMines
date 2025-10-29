@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root xmlns:android="http://schemas.android.com/apk/res/android">
+	<init>
+		<log text="EOS SDK (Meta Quest): Adding Meta Quest SDKs."/>
+		<setBool result="bSupported" value="false"/>
+		<isArch arch="armeabi-v7a">
+			<setBool result="bSupported" value="true"/>
+		</isArch>
+		<isArch arch="arm64-v8a">
+			<setBool result="bSupported" value="true"/>
+		</isArch>
+	</init>
+
+	<proguardAdditions>
+		<insert>
+			-keep class com.oculus.** {
+			*;
+			}
+			-keep class android.app.** {
+			*;
+			}
+		</insert>
+	</proguardAdditions>
+
+	<resourceCopies>
+		<isArch arch="armeabi-v7a">
+			<log text="Copying '$S(BuildDir)/../../../Binaries/Android/armeabi-v7a-libovrplatformloader.so' to '$S(BuildDir)/libs/armeabi-v7a/libovrplatformloader.so'..."/>
+			<copyFile
+				src="$S(BuildDir)/../../../Binaries/Android/armeabi-v7a-libovrplatformloader.so"
+				dst="$S(BuildDir)/libs/armeabi-v7a/libovrplatformloader.so" />
+		</isArch>
+		<isArch arch="arm64-v8a">
+			<log text="Copying '$S(BuildDir)/../../../Binaries/Android/arm64-v8a-libovrplatformloader.so' to '$S(BuildDir)/libs/arm64-v8a/libovrplatformloader.so'..."/>
+			<copyFile
+				src="$S(BuildDir)/../../../Binaries/Android/arm64-v8a-libovrplatformloader.so"
+				dst="$S(BuildDir)/libs/arm64-v8a/libovrplatformloader.so" />
+		</isArch>
+	</resourceCopies>
+
+	<soLoadLibrary>
+		<if condition="bSupported">
+			<true>
+				<loadLibrary name="ovrplatformloader" failmsg="The OVR platform library could not be loaded, and is required to run the application." />
+			</true>
+		</if>
+	</soLoadLibrary>
+</root>

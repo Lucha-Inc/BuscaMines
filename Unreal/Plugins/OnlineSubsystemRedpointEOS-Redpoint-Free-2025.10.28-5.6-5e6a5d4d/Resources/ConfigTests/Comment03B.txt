@@ -1,0 +1,27 @@
+// Comment 1
+[CoreTest] // Comment 2
+// Comment 3
+A=1 // Comment 4
+// Comment 5
+[CoreTest2] // Comment 6
+// Comment 7
+B=2 // Comment 8
+// Comment 9
+---
+S:CoreTest:A:2
+S:CoreTest:C:3
+S:CoreTest2:B:4
+S:CoreTest2:D:5
+---
+// Comment 1
+[CoreTest] // Comment 2
+// Comment 3
+A=2 // Comment 4
+C=3
+
+// Comment 5
+[CoreTest2] // Comment 6
+// Comment 7
+B=4 // Comment 8
+D=5
+// Comment 9

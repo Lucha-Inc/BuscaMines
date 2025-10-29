@@ -1,0 +1,646 @@
+{
+  "FileVersion": 3,
+  "Version": 17616937256,
+  "VersionName": "2025.10.28-5.6-5e6a5d4d",
+  "FriendlyName": "EOS Online Framework",
+  "Description": "An online framework that integrates Epic Online Services, providing an online subsystem, team-based matchmaking and access through blueprints. Previously \u0027EOS Online Subsystem\u0027.",
+  "Category": "Networking",
+  "CreatedBy": "Redpoint Games",
+  "CreatedByURL": "https://redpoint.games/",
+  "DocsURL": "https://docs.redpoint.games/",
+  "MarketplaceURL": "com.epicgames.launcher://ue/marketplace/product/2c92594ce5aa416c8bfbd79275389e3b",
+  "SupportURL": "https://redpoint.games/support/",
+  "CanContainContent": false,
+  "IsBetaVersion": false,
+  "IsExperimentalVersion": false,
+  "Installed": true,
+  "PreBuildSteps": {
+    "Win64": [
+      "\u0022$(PluginDir)\\Resources\\PreBuild.bat\u0022 \u0022$(ProjectDir)\u0022"
+    ]
+  },
+  "Modules": [
+    {
+      "Name": "Matchmaking",
+      "Type": "Runtime",
+      "LoadingPhase": "Default",
+      "PlatformAllowList": [
+        "Win64",
+        "Mac",
+        "IOS",
+        "Android",
+        "Linux",
+        "LinuxArm64"
+      ]
+    },
+    {
+      "Name": "MatchmakingMatchmaker",
+      "Type": "Runtime",
+      "LoadingPhase": "Default",
+      "PlatformAllowList": [
+        "Win64",
+        "Mac",
+        "IOS",
+        "Android",
+        "Linux",
+        "LinuxArm64"
+      ]
+    },
+    {
+      "Name": "MatchmakingTests",
+      "Type": "Runtime",
+      "LoadingPhase": "Default",
+      "PlatformAllowList": [
+        "Win64",
+        "Mac",
+        "Linux"
+      ]
+    },
+    {
+      "Name": "OnlineSubsystemBlueprints",
+      "Type": "Runtime",
+      "LoadingPhase": "Default",
+      "PlatformAllowList": [
+        "Win64",
+        "Mac",
+        "IOS",
+        "Android",
+        "Linux",
+        "LinuxArm64"
+      ]
+    },
+    {
+      "Name": "OnlineSubsystemRedpointEOS",
+      "Type": "Runtime",
+      "LoadingPhase": "Default",
+      "PlatformAllowList": [
+        "Win64",
+        "Mac",
+        "IOS",
+        "Android",
+        "Linux",
+        "LinuxArm64"
+      ]
+    },
+    {
+      "Name": "OnlineSubsystemRedpointGoogle",
+      "Type": "Runtime",
+      "LoadingPhase": "None",
+      "PlatformAllowList": [
+        "Android"
+      ]
+    },
+    {
+      "Name": "OnlineSubsystemRedpointSteam",
+      "Type": "Runtime",
+      "LoadingPhase": "None",
+      "PlatformAllowList": [
+        "Win64",
+        "Mac",
+        "Linux",
+        "LinuxArm64"
+      ]
+    },
+    {
+      "Name": "RedpointEOSAntiCheat",
+      "Type": "Runtime",
+      "LoadingPhase": "Default",
+      "PlatformAllowList": [
+        "Win64",
+        "Mac",
+        "IOS",
+        "Android",
+        "Linux",
+        "LinuxArm64"
+      ]
+    },
+    {
+      "Name": "RedpointEOSAPI",
+      "Type": "Runtime",
+      "LoadingPhase": "Default",
+      "PlatformAllowList": [
+        "Win64",
+        "Mac",
+        "IOS",
+        "Android",
+        "Linux",
+        "LinuxArm64"
+      ]
+    },
+    {
+      "Name": "RedpointEOSAsync",
+      "Type": "Runtime",
+      "LoadingPhase": "Default",
+      "PlatformAllowList": [
+        "Win64",
+        "Mac",
+        "IOS",
+        "Android",
+        "Linux",
+        "LinuxArm64"
+      ]
+    },
+    {
+      "Name": "RedpointEOSAuth",
+      "Type": "Runtime",
+      "LoadingPhase": "Default",
+      "PlatformAllowList": [
+        "Win64",
+        "Mac",
+        "IOS",
+        "Android",
+        "Linux",
+        "LinuxArm64"
+      ]
+    },
+    {
+      "Name": "RedpointEOSCompat",
+      "Type": "Runtime",
+      "LoadingPhase": "Default",
+      "PlatformAllowList": [
+        "Win64",
+        "Mac",
+        "IOS",
+        "Android",
+        "Linux",
+        "LinuxArm64"
+      ]
+    },
+    {
+      "Name": "RedpointEOSConfig",
+      "Type": "Runtime",
+      "LoadingPhase": "EarliestPossible",
+      "PlatformAllowList": [
+        "Win64",
+        "Mac",
+        "IOS",
+        "Android",
+        "Linux",
+        "LinuxArm64"
+      ]
+    },
+    {
+      "Name": "RedpointEOSConfigInspector",
+      "Type": "Editor",
+      "LoadingPhase": "Default",
+      "PlatformAllowList": [
+        "Win64",
+        "Mac",
+        "Linux",
+        "LinuxArm64"
+      ]
+    },
+    {
+      "Name": "RedpointEOSCore",
+      "Type": "Runtime",
+      "LoadingPhase": "Default",
+      "PlatformAllowList": [
+        "Win64",
+        "Mac",
+        "IOS",
+        "Android",
+        "Linux",
+        "LinuxArm64"
+      ]
+    },
+    {
+      "Name": "RedpointEOSEditor",
+      "Type": "Editor",
+      "LoadingPhase": "Default",
+      "PlatformAllowList": [
+        "Win64",
+        "Mac",
+        "Linux",
+        "LinuxArm64"
+      ]
+    },
+    {
+      "Name": "RedpointEOSFramework",
+      "Type": "Runtime",
+      "LoadingPhase": "Default",
+      "PlatformAllowList": [
+        "Win64",
+        "Mac",
+        "IOS",
+        "Android",
+        "Linux",
+        "LinuxArm64"
+      ]
+    },
+    {
+      "Name": "RedpointEOSFrameworkExtra",
+      "Type": "Runtime",
+      "LoadingPhase": "None",
+      "PlatformAllowList": [
+        "Win64",
+        "Mac",
+        "IOS",
+        "Android",
+        "Linux",
+        "LinuxArm64"
+      ]
+    },
+    {
+      "Name": "RedpointEOSFriends",
+      "Type": "Runtime",
+      "LoadingPhase": "Default",
+      "PlatformAllowList": [
+        "Win64",
+        "Mac",
+        "IOS",
+        "Android",
+        "Linux",
+        "LinuxArm64"
+      ]
+    },
+    {
+      "Name": "RedpointEOSGauntlet",
+      "Type": "Runtime",
+      "LoadingPhase": "Default",
+      "PlatformAllowList": [
+        "Win64",
+        "Mac",
+        "IOS",
+        "Android",
+        "Linux",
+        "LinuxArm64"
+      ]
+    },
+    {
+      "Name": "RedpointEOSIdentity",
+      "Type": "Runtime",
+      "LoadingPhase": "Default",
+      "PlatformAllowList": [
+        "Win64",
+        "Mac",
+        "IOS",
+        "Android",
+        "Linux",
+        "LinuxArm64"
+      ]
+    },
+    {
+      "Name": "RedpointEOSLicenseValidation",
+      "Type": "Runtime",
+      "LoadingPhase": "Default",
+      "PlatformAllowList": [
+        "Win64",
+        "Mac",
+        "IOS",
+        "Android",
+        "Linux",
+        "LinuxArm64"
+      ]
+    },
+    {
+      "Name": "RedpointEOSNetworking",
+      "Type": "Runtime",
+      "LoadingPhase": "Default",
+      "PlatformAllowList": [
+        "Win64",
+        "Mac",
+        "IOS",
+        "Android",
+        "Linux",
+        "LinuxArm64"
+      ]
+    },
+    {
+      "Name": "RedpointEOSOrchestrator",
+      "Type": "Runtime",
+      "LoadingPhase": "Default",
+      "PlatformAllowList": [
+        "Win64",
+        "Mac",
+        "IOS",
+        "Android",
+        "Linux",
+        "LinuxArm64"
+      ]
+    },
+    {
+      "Name": "RedpointEOSPlatform",
+      "Type": "Runtime",
+      "LoadingPhase": "Default",
+      "PlatformAllowList": [
+        "Win64",
+        "Mac",
+        "IOS",
+        "Android",
+        "Linux",
+        "LinuxArm64"
+      ]
+    },
+    {
+      "Name": "RedpointEOSPlatformAndroid",
+      "Type": "Runtime",
+      "LoadingPhase": "None",
+      "PlatformAllowList": [
+        "Android"
+      ]
+    },
+    {
+      "Name": "RedpointEOSPlatformDesktop",
+      "Type": "Runtime",
+      "LoadingPhase": "None",
+      "PlatformAllowList": [
+        "Win64",
+        "Mac",
+        "Linux",
+        "LinuxArm64"
+      ]
+    },
+    {
+      "Name": "RedpointEOSPlatformIntegrationApple",
+      "Type": "Runtime",
+      "LoadingPhase": "None",
+      "PlatformAllowList": [
+        "IOS"
+      ]
+    },
+    {
+      "Name": "RedpointEOSPlatformIntegrationDiscord",
+      "Type": "Runtime",
+      "LoadingPhase": "None",
+      "PlatformAllowList": [
+        "Win64",
+        "Mac",
+        "Linux",
+        "LinuxArm64"
+      ]
+    },
+    {
+      "Name": "RedpointEOSPlatformIntegrationEpic",
+      "Type": "Runtime",
+      "LoadingPhase": "None",
+      "PlatformAllowList": [
+        "Win64",
+        "Mac",
+        "Linux",
+        "LinuxArm64"
+      ]
+    },
+    {
+      "Name": "RedpointEOSPlatformIntegrationGOG",
+      "Type": "Runtime",
+      "LoadingPhase": "None",
+      "PlatformAllowList": [
+        "Win64",
+        "Mac"
+      ]
+    },
+    {
+      "Name": "RedpointEOSPlatformIntegrationGooglePlay",
+      "Type": "Runtime",
+      "LoadingPhase": "None",
+      "PlatformAllowList": [
+        "Android"
+      ]
+    },
+    {
+      "Name": "RedpointEOSPlatformIntegrationItchIo",
+      "Type": "Runtime",
+      "LoadingPhase": "None",
+      "PlatformAllowList": [
+        "Win64",
+        "Mac",
+        "Linux",
+        "LinuxArm64"
+      ]
+    },
+    {
+      "Name": "RedpointEOSPlatformIntegrationMeta",
+      "Type": "Runtime",
+      "LoadingPhase": "None",
+      "PlatformAllowList": [
+        "Win64",
+        "Android"
+      ]
+    },
+    {
+      "Name": "RedpointEOSPlatformIntegrationOSSv1",
+      "Type": "Runtime",
+      "LoadingPhase": "None",
+      "PlatformAllowList": [
+        "Win64",
+        "Mac",
+        "IOS",
+        "Android",
+        "Linux",
+        "LinuxArm64"
+      ]
+    },
+    {
+      "Name": "RedpointEOSPlatformIntegrationSteam",
+      "Type": "Runtime",
+      "LoadingPhase": "None",
+      "PlatformAllowList": [
+        "Win64",
+        "Mac",
+        "Linux",
+        "LinuxArm64"
+      ]
+    },
+    {
+      "Name": "RedpointEOSPlatformIOS",
+      "Type": "Runtime",
+      "LoadingPhase": "None",
+      "PlatformAllowList": [
+        "IOS"
+      ]
+    },
+    {
+      "Name": "RedpointEOSPresence",
+      "Type": "Runtime",
+      "LoadingPhase": "Default",
+      "PlatformAllowList": [
+        "Win64",
+        "Mac",
+        "IOS",
+        "Android",
+        "Linux",
+        "LinuxArm64"
+      ]
+    },
+    {
+      "Name": "RedpointEOSRecentPlayers",
+      "Type": "Runtime",
+      "LoadingPhase": "Default",
+      "PlatformAllowList": [
+        "Win64",
+        "Mac",
+        "IOS",
+        "Android",
+        "Linux",
+        "LinuxArm64"
+      ]
+    },
+    {
+      "Name": "RedpointEOSRooms",
+      "Type": "Runtime",
+      "LoadingPhase": "Default",
+      "PlatformAllowList": [
+        "Win64",
+        "Mac",
+        "IOS",
+        "Android",
+        "Linux",
+        "LinuxArm64"
+      ]
+    },
+    {
+      "Name": "RedpointEOSShared",
+      "Type": "Runtime",
+      "LoadingPhase": "EarliestPossible",
+      "PlatformAllowList": [
+        "Win64",
+        "Mac",
+        "IOS",
+        "Android",
+        "Linux",
+        "LinuxArm64"
+      ]
+    },
+    {
+      "Name": "RedpointEOSStorage",
+      "Type": "Runtime",
+      "LoadingPhase": "Default",
+      "PlatformAllowList": [
+        "Win64",
+        "Mac",
+        "IOS",
+        "Android",
+        "Linux",
+        "LinuxArm64"
+      ]
+    },
+    {
+      "Name": "RedpointEOSTests",
+      "Type": "DeveloperTool",
+      "LoadingPhase": "Default",
+      "PlatformAllowList": [
+        "Win64",
+        "Mac",
+        "IOS",
+        "Android",
+        "Linux",
+        "LinuxArm64"
+      ],
+      "TargetDenyList": [
+        "Server"
+      ]
+    },
+    {
+      "Name": "RedpointEOSTestsEditor",
+      "Type": "Editor",
+      "LoadingPhase": "Default",
+      "PlatformAllowList": [
+        "Win64",
+        "Mac",
+        "Linux",
+        "LinuxArm64"
+      ]
+    },
+    {
+      "Name": "RedpointEOSUserCache",
+      "Type": "Runtime",
+      "LoadingPhase": "Default",
+      "PlatformAllowList": [
+        "Win64",
+        "Mac",
+        "IOS",
+        "Android",
+        "Linux",
+        "LinuxArm64"
+      ]
+    },
+    {
+      "Name": "RedpointEOSUtils",
+      "Type": "Runtime",
+      "LoadingPhase": "Default",
+      "PlatformAllowList": [
+        "Win64",
+        "Mac",
+        "IOS",
+        "Android",
+        "Linux",
+        "LinuxArm64"
+      ]
+    },
+    {
+      "Name": "RedpointEOSVoiceChat",
+      "Type": "ClientOnly",
+      "LoadingPhase": "Default",
+      "PlatformAllowList": [
+        "Win64",
+        "Mac",
+        "IOS",
+        "Android",
+        "Linux",
+        "LinuxArm64"
+      ]
+    },
+    {
+      "Name": "RedpointFabAuthentication",
+      "Type": "Editor",
+      "LoadingPhase": "Default",
+      "PlatformAllowList": [
+        "Win64",
+        "Mac",
+        "Linux",
+        "LinuxArm64"
+      ]
+    },
+    {
+      "Name": "RedpointLibHydrogen",
+      "Type": "Runtime",
+      "LoadingPhase": "Default",
+      "PlatformAllowList": [
+        "Win64",
+        "Mac",
+        "IOS",
+        "Android",
+        "Linux",
+        "LinuxArm64"
+      ]
+    }
+  ],
+  "Plugins": [
+    {
+      "Name": "Gauntlet",
+      "Enabled": true
+    },
+    {
+      "Name": "OnlineSubsystem",
+      "Enabled": true
+    },
+    {
+      "Name": "OnlineSubsystemUtils",
+      "Enabled": true
+    },
+    {
+      "Name": "AESGCMHandlerComponent",
+      "Enabled": true
+    },
+    {
+      "Name": "EnhancedInput",
+      "Enabled": true
+    },
+    {
+      "Name": "GameplayAbilities",
+      "Enabled": true
+    },
+    {
+      "Name": "OnlineSubsystemSteam",
+      "Enabled": true,
+      "Optional": true,
+      "PlatformAllowList": [
+        "Win64",
+        "Mac",
+        "Linux"
+      ]
+    }
+  ],
+  "EngineVersion": "5.6.0",
+  "EnabledByDefault": false
+}

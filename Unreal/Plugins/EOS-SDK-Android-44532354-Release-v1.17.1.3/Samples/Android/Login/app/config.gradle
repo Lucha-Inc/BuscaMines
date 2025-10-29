@@ -1,0 +1,39 @@
+ext.versions = [
+	namespace : "com.epicgames.mobile.login",
+	appId     : "com.epicgames.mobile.login",
+	compileSdk: 34,
+	buildTools: "34.0.0",
+	minSdk    : 23,
+	targetSdk : 34,
+	ndk       : "21.4.7075529",
+	java      : JavaVersion.VERSION_1_8,
+	cmake     : "3.22.1",
+]
+
+ext.androidXVersions = [
+	constraintLayout: "2.1.4",
+	appCompat       : "1.6.1",
+	securityCrypto  : "1.0.0",
+	browser         : "1.8.0",
+	webkit          : "1.10.0",
+	legacySupport   : "1.0.0",
+	recyclerView    : "1.3.2",
+]
+
+ext.androidXLibraries = [
+	constraintLayout: "androidx.constraintlayout:constraintlayout:${ext.androidXVersions.constraintLayout}",
+	appCompat       : "androidx.appcompat:appcompat:${ext.androidXVersions.appCompat}",
+	securityCrypto  : "androidx.security:security-crypto:${ext.androidXVersions.securityCrypto}",
+	browser         : "androidx.browser:browser:${ext.androidXVersions.browser}",
+	webkit          : "androidx.webkit:webkit:${ext.androidXVersions.webkit}",
+	legacySupport   : "androidx.legacy:legacy-support-v4:${ext.androidXVersions.legacySupport}",
+	recyclerView    : "androidx.recyclerview:recyclerview:${ext.androidXVersions.recyclerView}",
+]
+
+ext.otherVersions = [
+	material: "1.11.0",
+]
+
+ext.otherLibraries = [
+	material: "com.google.android.material:material:${ext.otherVersions.material}",
+]

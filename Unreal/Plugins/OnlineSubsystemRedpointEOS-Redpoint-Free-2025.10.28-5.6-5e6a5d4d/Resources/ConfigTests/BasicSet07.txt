@@ -1,0 +1,10 @@
+[CoreTest2]
+A=B
+---
+S:CoreTest:A:C
+---
+[CoreTest2]
+A=B
+
+[CoreTest]
+A=C

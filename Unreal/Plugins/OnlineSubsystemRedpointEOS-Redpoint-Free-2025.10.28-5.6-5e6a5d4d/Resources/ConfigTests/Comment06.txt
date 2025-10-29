@@ -1,0 +1,8 @@
+; Comment before section
+[CoreTest]
+---
+S:CoreTest:A:Test
+---
+; Comment before section
+[CoreTest]
+A=Test

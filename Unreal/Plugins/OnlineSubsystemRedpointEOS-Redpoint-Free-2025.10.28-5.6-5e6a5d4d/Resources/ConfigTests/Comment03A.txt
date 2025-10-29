@@ -1,0 +1,17 @@
+[CoreTest]
+A=1
+[CoreTest2]
+B=2
+---
+S:CoreTest:A:2
+S:CoreTest:C:3
+S:CoreTest2:B:4
+S:CoreTest2:D:5
+---
+[CoreTest]
+A=2
+C=3
+
+[CoreTest2]
+B=4
+D=5

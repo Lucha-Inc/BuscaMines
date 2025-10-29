@@ -1,0 +1,34 @@
+[/Script/UnrealEd.CookerSettings]
+bCookOnTheFlyForLaunchOn=False
+---
+S:EpicOnlineServices:ProductName:My Product Name
+S:EpicOnlineServices:ProductVersion:0.1.0
+S:OnlineSubsystem:DefaultPlatformService:RedpointEOS
+B:/Script/IOSRuntimeSettings.IOSRuntimeSettings:bShipForBitcode:False
+A:/Script/Engine.Engine:NetDriverDefinitions:(DefName="GameNetDriver",DriverClassName="/Script/OnlineSubsystemRedpointEOS.EOSNetDriver",DriverClassNameFallback="/Script/OnlineSubsystemUtils.IpNetDriver");;;(DefName="BeaconNetDriver",DriverClassName="/Script/OnlineSubsystemRedpointEOS.EOSNetDriver",DriverClassNameFallback="/Script/OnlineSubsystemUtils.IpNetDriver");;;(DefName="DemoNetDriver",DriverClassName="/Script/Engine.DemoNetDriver",DriverClassNameFallback="/Script/Engine.DemoNetDriver")
+A:/Script/Engine.GameEngine:NetDriverDefinitions:(DefName="GameNetDriver",DriverClassName="/Script/OnlineSubsystemRedpointEOS.EOSNetDriver",DriverClassNameFallback="/Script/OnlineSubsystemUtils.IpNetDriver");;;(DefName="BeaconNetDriver",DriverClassName="/Script/OnlineSubsystemRedpointEOS.EOSNetDriver",DriverClassNameFallback="/Script/OnlineSubsystemUtils.IpNetDriver");;;(DefName="DemoNetDriver",DriverClassName="/Script/Engine.DemoNetDriver",DriverClassNameFallback="/Script/Engine.DemoNetDriver")
+---
+[/Script/UnrealEd.CookerSettings]
+bCookOnTheFlyForLaunchOn=False
+
+[EpicOnlineServices]
+ProductName=My Product Name
+ProductVersion=0.1.0
+
+[OnlineSubsystem]
+DefaultPlatformService=RedpointEOS
+
+[/Script/IOSRuntimeSettings.IOSRuntimeSettings]
+bShipForBitcode=False
+
+[/Script/Engine.Engine]
+!NetDriverDefinitions=ClearArray
++NetDriverDefinitions=(DefName="GameNetDriver",DriverClassName="/Script/OnlineSubsystemRedpointEOS.EOSNetDriver",DriverClassNameFallback="/Script/OnlineSubsystemUtils.IpNetDriver")
++NetDriverDefinitions=(DefName="BeaconNetDriver",DriverClassName="/Script/OnlineSubsystemRedpointEOS.EOSNetDriver",DriverClassNameFallback="/Script/OnlineSubsystemUtils.IpNetDriver")
++NetDriverDefinitions=(DefName="DemoNetDriver",DriverClassName="/Script/Engine.DemoNetDriver",DriverClassNameFallback="/Script/Engine.DemoNetDriver")
+
+[/Script/Engine.GameEngine]
+!NetDriverDefinitions=ClearArray
++NetDriverDefinitions=(DefName="GameNetDriver",DriverClassName="/Script/OnlineSubsystemRedpointEOS.EOSNetDriver",DriverClassNameFallback="/Script/OnlineSubsystemUtils.IpNetDriver")
++NetDriverDefinitions=(DefName="BeaconNetDriver",DriverClassName="/Script/OnlineSubsystemRedpointEOS.EOSNetDriver",DriverClassNameFallback="/Script/OnlineSubsystemUtils.IpNetDriver")
++NetDriverDefinitions=(DefName="DemoNetDriver",DriverClassName="/Script/Engine.DemoNetDriver",DriverClassNameFallback="/Script/Engine.DemoNetDriver")

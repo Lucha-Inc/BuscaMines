@@ -1,0 +1,6 @@
+
+if (file("build_internal.gradle").exists()) {
+	apply from: "build_internal.gradle"
+} else {
+	apply from: "build_external.gradle"
+}
