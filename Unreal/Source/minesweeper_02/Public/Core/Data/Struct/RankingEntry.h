@@ -17,8 +17,12 @@ public:
 	UPROPERTY(BlueprintReadOnly)
 	float Value;
 
+	UPROPERTY(BlueprintReadOnly)
+	FDateTime Timestamp;
+
 	FRankingEntry() : Name(TEXT("")), Value(0.f) {}
-	FRankingEntry(const FString& InName, float InValue) : Name(InName), Value(InValue) {}
+	FRankingEntry(const FString& InName, float InValue) : Name(InName), Value(InValue), Timestamp(FDateTime::Now()) {}
+	FRankingEntry(const FString& InName, float InValue, const FDateTime& InTimestamp) : Name(InName), Value(InValue), Timestamp(InTimestamp) {}
 };
 
 

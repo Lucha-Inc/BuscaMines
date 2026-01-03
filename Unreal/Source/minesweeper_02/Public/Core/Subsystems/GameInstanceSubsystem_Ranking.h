@@ -10,7 +10,7 @@
 /**
  * 
  */
-UCLASS()
+UCLASS(Blueprintable)
 class MINESWEEPER_02_API UGameInstanceSubsystem_Ranking : public UGameInstanceSubsystem {
 	GENERATED_BODY()
 

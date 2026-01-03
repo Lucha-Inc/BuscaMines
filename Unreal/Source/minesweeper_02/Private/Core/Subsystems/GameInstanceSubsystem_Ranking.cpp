@@ -25,21 +25,85 @@ void UGameInstanceSubsystem_Ranking::Deinitialize() {
 
 
 
-int32 UGameInstanceSubsystem_Ranking::ReportRankEntry(const FString& Ranking, const FString& Rank_User, float Rank_value) {
-	UE_LOG(LogTemp, Warning, TEXT("ReportRankEntry called with Ranking: %s, Rank_User: %s, Rank_value: %f"), *Ranking, *Rank_User, Rank_value);
 
-	return 0; // Retorna 0 para indicar éxito
+int32 UGameInstanceSubsystem_Ranking::ReportRankEntry(const FString& RankingSlot, const FString& Rank_User, float Rank_value) {
+    UE_LOG(LogTemp, Warning, TEXT("ReportRankEntry called with Ranking: %s, Rank_User: %s, Rank_value: %f"), *RankingSlot, *Rank_User, Rank_value);
+
+    // 1 Cargar ranking existente
+    TArray<FRankingEntry> CurrentRanking = LoadRanking(RankingSlot);
+
+    FRankingEntry NewEntry(Rank_User, Rank_value);
+    bool bInserted = false;
+
+    if (CurrentRanking.Num() < 10) {
+        // Si hay menos de 10 elementos, agregar directamente
+        CurrentRanking.Add(NewEntry);
+        bInserted = true;
+    } else {
+        // Buscar el valor mínimo en el ranking
+        int32 MinIndex = 0;
+        float MinValue = CurrentRanking[0].Value;
+
+        for (int32 i = 1; i < CurrentRanking.Num(); i++) {
+            if (CurrentRanking[i].Value < MinValue) {
+                MinValue = CurrentRanking[i].Value;
+                MinIndex = i;
+            }
+        }
+
+        // Reemplazar solo si la nueva puntuación es mayor que el mínimo
+        if (Rank_value > MinValue) {
+            CurrentRanking[MinIndex] = NewEntry;
+            bInserted = true;
+        } else {
+            // No entra en el ranking ? retornamos 0
+            UE_LOG(LogTemp, Warning, TEXT("Score %f no entra en el ranking del slot %s"), Rank_value, *RankingSlot);
+            return 0;
+        }
+    }
+
+    // 2 Ordenar ranking descendente (mayor primero)
+    CurrentRanking.Sort([](const FRankingEntry& A, const FRankingEntry& B)
+        {
+            if (A.Value != B.Value) {
+                return A.Value > B.Value; // mayor primero
+            }
+            return A.Timestamp < B.Timestamp; // si empate, más viejo primero
+        });
+
+    // 3 Guardar el ranking actualizado
+    SaveRanking(RankingSlot, CurrentRanking);
+
+    // 4 Determinar la posición del nuevo valor
+    int32 RankPosition = 1; // inicializamos en 1 (mayor primero)
+    for (const FRankingEntry& Entry : CurrentRanking) {
+        if (Entry.Name == Rank_User && Entry.Value == Rank_value) {
+            return RankPosition; // posición donde quedó la nueva puntuación
+        }
+        RankPosition++;
+    }
+
+    // En caso improbable de no encontrarlo, retornar 0
+    return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
 
 TArray<FRankingEntry> UGameInstanceSubsystem_Ranking::GetRankTop10(const FString& Ranking) const {
 	UE_LOG(LogTemp, Warning, TEXT("GetRankTop10 called with Ranking: %s"), *Ranking);
 	TArray<FRankingEntry> Top10Entries;
 	// Ejemplo de datos ficticios
-	for (int32 i = 1; i <= 10; ++i) {
-		FString UserName = FString::Printf(TEXT("User%d"), i);
-		float Score = FMath::RandRange(0.f, 100.f);
-		Top10Entries.Add(FRankingEntry(UserName, Score));
-	}
+
+    Top10Entries = LoadRanking(Ranking);
 	return Top10Entries;	
 }
 
