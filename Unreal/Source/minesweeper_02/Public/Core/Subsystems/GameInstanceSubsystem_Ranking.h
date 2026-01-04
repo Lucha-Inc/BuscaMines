@@ -21,6 +21,8 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Ranking")
 	int32 ReportRankEntry(const FString& Ranking, const FString& Rank_User, float Rank_value);
 
+	UFUNCTION(BlueprintCallable, Category = "Ranking")
+	bool UpdateRankName(const FString& RankingSlot, int32 Position, const FString& NewUserName);
 
 	UFUNCTION(BlueprintCallable, Category = "Ranking")
 	TArray<FRankingEntry> GetRankTop10(const FString& Ranking) const;

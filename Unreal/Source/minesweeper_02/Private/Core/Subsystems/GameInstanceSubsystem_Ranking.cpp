@@ -32,7 +32,8 @@ int32 UGameInstanceSubsystem_Ranking::ReportRankEntry(const FString& RankingSlot
     // 1 Cargar ranking existente
     TArray<FRankingEntry> CurrentRanking = LoadRanking(RankingSlot);
 
-    FRankingEntry NewEntry(Rank_User, Rank_value);
+    FDateTime EntryDatetime = FDateTime::Now();
+    FRankingEntry NewEntry(Rank_User, Rank_value, EntryDatetime);
     bool bInserted = false;
 
     if (CurrentRanking.Num() < 10) {
@@ -50,6 +51,7 @@ int32 UGameInstanceSubsystem_Ranking::ReportRankEntry(const FString& RankingSlot
                 MinIndex = i;
             }
         }
+        //UE_LOG(LogTemp, Warning, TEXT("MIN RANK VALUE %f IN POS %i"), MinValue, MinIndex);
 
         // Reemplazar solo si la nueva puntuación es mayor que el mínimo
         if (Rank_value > MinValue) {
@@ -75,12 +77,21 @@ int32 UGameInstanceSubsystem_Ranking::ReportRankEntry(const FString& RankingSlot
     SaveRanking(RankingSlot, CurrentRanking);
 
     // 4 Determinar la posición del nuevo valor
-    int32 RankPosition = 1; // inicializamos en 1 (mayor primero)
-    for (const FRankingEntry& Entry : CurrentRanking) {
-        if (Entry.Name == Rank_User && Entry.Value == Rank_value) {
-            return RankPosition; // posición donde quedó la nueva puntuación
+    //int32 RankPosition = 1; // inicializamos en 1 (mayor primero)
+    //for (const FRankingEntry& Entry : CurrentRanking) {
+    //    if (Entry.Name == Rank_User && Entry.Value == Rank_value) {
+    //        return RankPosition; // posición donde quedó la nueva puntuación
+    //    }
+    //    RankPosition++;
+    //}
+
+    for (int32 Index = 0; Index < CurrentRanking.Num(); Index++) {
+        const FRankingEntry& Entry = CurrentRanking[Index];
+
+        // Comprobamos que coincida nombre y valor
+        if (Entry.Name == Rank_User && Entry.Value == Rank_value && Entry.Timestamp == EntryDatetime) {
+            return Index + 1; // devolvemos posición 1-based
         }
-        RankPosition++;
     }
 
     // En caso improbable de no encontrarlo, retornar 0
@@ -88,7 +99,26 @@ int32 UGameInstanceSubsystem_Ranking::ReportRankEntry(const FString& RankingSlot
 }
 
 
+bool UGameInstanceSubsystem_Ranking::UpdateRankName(const FString& RankingSlot, int32 Position, const FString& NewUserName) {
+    // Cargar el ranking actual
+    TArray<FRankingEntry> CurrentRanking = LoadRanking(RankingSlot);
 
+    // Verificar que la posición sea válida
+    if (!CurrentRanking.IsValidIndex(Position)) {
+        UE_LOG(LogTemp, Warning, TEXT("UpdateRankName: posicion %d fuera de rango en ranking %s"), Position, *RankingSlot);
+        return false;
+    }
+
+    // Actualizar el nombre del usuario en la posición
+    CurrentRanking[Position-1].Name = NewUserName;
+
+    // Guardar cambios
+    SaveRanking(RankingSlot, CurrentRanking);
+
+    UE_LOG(LogTemp, Warning, TEXT("UpdateRankName: posicion %i en ranking %s actualizada a %s"), Position, *RankingSlot, *NewUserName);
+
+    return true;
+}
 
 
 
