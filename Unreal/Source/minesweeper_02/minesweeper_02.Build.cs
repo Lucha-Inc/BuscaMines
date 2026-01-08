@@ -19,7 +19,7 @@ public class minesweeper_02 : ModuleRules
         // PrivateDependencyModuleNames.Add("OnlineSubsystem");
 
         // To include OnlineSubsystemSteam, add it to the plugins section in your uproject file with the Enabled attribute set to true
-        bUseRTTI = true;        // habilita RTTI
-        bEnableExceptions = true; // habilita exceptions
+        bUseRTTI = false;        // habilita RTTI
+        bEnableExceptions = false; // habilita exceptions
     }
 }
