@@ -27,6 +27,11 @@ public:
 	UFUNCTION(BlueprintCallable, Category = "Ranking")
 	TArray<FRankingEntry> GetRankTop10(const FString& Ranking) const;
 
+	UFUNCTION(BlueprintCallable, Category = "Ranking")
+	FRankingEntry GetRankEntryAtPosition(const FString& RankingSlot, int32 Position) const;
+
+
+
 private:
 	// Carga el ranking desde un slot específico
 	TArray<FRankingEntry> LoadRanking(const FString& SlotName) const;

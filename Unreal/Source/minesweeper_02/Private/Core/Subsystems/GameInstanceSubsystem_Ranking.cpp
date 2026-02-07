@@ -104,7 +104,7 @@ bool UGameInstanceSubsystem_Ranking::UpdateRankName(const FString& RankingSlot, 
     TArray<FRankingEntry> CurrentRanking = LoadRanking(RankingSlot);
 
     // Verificar que la posición sea válida
-    if (!CurrentRanking.IsValidIndex(Position)) {
+    if (!CurrentRanking.IsValidIndex(Position - 1)) {
         UE_LOG(LogTemp, Warning, TEXT("UpdateRankName: posicion %d fuera de rango en ranking %s"), Position, *RankingSlot);
         return false;
     }
@@ -184,4 +184,24 @@ void UGameInstanceSubsystem_Ranking::SaveRanking(const FString& SlotName, const 
         UE_LOG(LogTemp, Warning, TEXT("Error al guardar el ranking en slot: %s"), *SlotName);
     }
 }
+
+
+
+
+
+
+FRankingEntry UGameInstanceSubsystem_Ranking::GetRankEntryAtPosition(const FString& RankingSlot, int32 Position) const {
+    // Cargar ranking actual
+    TArray<FRankingEntry> CurrentRanking = LoadRanking(RankingSlot);
+
+    // Validar índice (1-based)
+    if (!CurrentRanking.IsValidIndex(Position - 1)) {
+        UE_LOG(LogTemp, Warning, TEXT("GetRankEntryAtPosition: posicion %d fuera de rango en ranking %s"), Position, *RankingSlot);
+        return FRankingEntry(); // Devuelve un entry vacío si es inválido
+    }
+
+    // Devolver el entry
+    return CurrentRanking[Position - 1];
+}
+
 
