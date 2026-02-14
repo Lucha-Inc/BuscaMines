@@ -48,6 +48,10 @@
 		{
 			"Name": "OnlineServicesEOS",
 			"Enabled": true
+		},
+		{
+			"Name": "Aura",
+			"Enabled": true
 		}
 	]
 }

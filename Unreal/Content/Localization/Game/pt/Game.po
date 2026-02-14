@@ -1,0 +1,238 @@
+﻿# Game Portuguese translation.
+# Fill out your copyright notice in the Description page of Project Settings.
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: Game\n"
+"POT-Creation-Date: 2026-02-11 20:21\n"
+"PO-Revision-Date: 2026-02-11 20:21\n"
+"Language-Team: \n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+msgctxt ",D0CB42CC41B79913B4D76E84EDD711A3"
+msgid "No Game Level"
+msgstr "Nenhum nível de jogo"
+
+msgctxt "ST_GAME,GAME_CLASSIC_DIFFICULTY_EASY_DESCRIPTION"
+msgid "Easy description"
+msgstr "Descrição fácil"
+
+msgctxt "ST_GAME,GAME_CLASSIC_DIFFICULTY_EASY_LEVELNAME"
+msgid "Nivel fácil"
+msgstr "Nível fácil"
+
+msgctxt "ST_GAME,GAME_CLASSIC_DIFFICULTY_EASY_NAME"
+msgid "Fácil"
+msgstr "Fácil"
+
+msgctxt "ST_GAME,GAME_CLASSIC_DIFFICULTY_HARD_DESCRIPTION"
+msgid "Hard description"
+msgstr "Descrição difícil"
+
+msgctxt "ST_GAME,GAME_CLASSIC_DIFFICULTY_HARD_LEVELNAME"
+msgid "Nivel difícil"
+msgstr "Nível difícil"
+
+msgctxt "ST_GAME,GAME_CLASSIC_DIFFICULTY_HARD_NAME"
+msgid "Difícil"
+msgstr "Difícil"
+
+msgctxt "ST_GAME,GAME_CLASSIC_DIFFICULTY_MEDIUM_DESCRIPTION"
+msgid "Medio description"
+msgstr "Descrição média"
+
+msgctxt "ST_GAME,GAME_CLASSIC_DIFFICULTY_MEDIUM_LEVELNAME"
+msgid "Nivel medio"
+msgstr "Nível médio"
+
+msgctxt "ST_GAME,GAME_CLASSIC_DIFFICULTY_MEDIUM_NAME"
+msgid "Medio"
+msgstr "Médio"
+
+msgctxt "ST_HUD,HUD_GAME_STATS_MINES_TOTAL"
+msgid "Minas totales: {total_mines}"
+msgstr "Minas totais: {total_mines}"
+
+msgctxt "ST_HUD,HUD_GAME_STATS_TILES_MARKED"
+msgid "Casillas marcadas: {marked_tiles}"
+msgstr "Casas marcadas: {marked_tiles}"
+
+msgctxt "ST_HUD,HUD_GAME_STATS_TILES_REVEALED"
+msgid "Casillas descubiertas: {revealed_tiles}"
+msgstr "Casas descobertas: {revealed_tiles}"
+
+msgctxt "ST_HUD,HUD_GAME_STATS_TILES_TOTAL"
+msgid "Casillas totales: {total_tiles}"
+msgstr "Casas totais: {total_tiles}"
+
+msgctxt "ST_MainMenu,MAINMENU_CONFIG_VOLUME_ANIMATIONS"
+msgid "Volumen de animaciones"
+msgstr "Volume das animações"
+
+msgctxt "ST_MainMenu,MAINMENU_CONFIG_VOLUME_MUSIC"
+msgid "Volumen de música"
+msgstr "Volume da música"
+
+msgctxt "ST_MainMenu,MAINMENU_CONFIG_VOLUME_SYSTEM"
+msgid "Volumen de sistema"
+msgstr "Volume do sistema"
+
+msgctxt "ST_MainMenu,MIANMENU_BACK"
+msgid "Volver"
+msgstr "Voltar"
+
+msgctxt "ST_MainMenu,MIANMENU_CLASSIC_DIFFICULTY_EASY"
+msgid "Fácil"
+msgstr "Fácil"
+
+msgctxt "ST_MainMenu,MIANMENU_CLASSIC_DIFFICULTY_HARD"
+msgid "Difícil"
+msgstr "Difícil"
+
+msgctxt "ST_MainMenu,MIANMENU_CLASSIC_DIFFICULTY_MEDIUM"
+msgid "Medio"
+msgstr "Médio"
+
+msgctxt "ST_MainMenu,MIANMENU_MODE_ADVENTURE"
+msgid "Aventura"
+msgstr "Aventura"
+
+msgctxt "ST_MainMenu,MIANMENU_MODE_CLASSIC"
+msgid "Clásico"
+msgstr "Clássico"
+
+msgctxt "ST_MainMenu,MIANMENU_OPTIONS"
+msgid "Opciones"
+msgstr "Opções"
+
+msgctxt "ST_MainMenu,MIANMENU_PLAY"
+msgid "Jugar"
+msgstr "Jogar"
+
+msgctxt "ST_MainMenu,MIANMENU_QUIT"
+msgid "Salir"
+msgstr "Sair"
+
+msgctxt "ST_Menus,MENU_COMMON_LEAVE_GAME"
+msgid "Abandonar"
+msgstr "Abandonar"
+
+msgctxt "ST_Menus,MENU_COMMON_RESTART_GAME"
+msgid "Reiniciar"
+msgstr "Reiniciar"
+
+msgctxt "ST_Menus,MENU_COMMON_RESUME_GAME"
+msgid "Seguir jugando"
+msgstr "Continuar jogando"
+
+msgctxt "ST_Menus,MENU_COMMON_SCORE"
+msgid "Puntaje: {SCORE}"
+msgstr "Pontuação: {SCORE}"
+
+msgctxt "ST_Menus,MENU_COMMON_START_GAME"
+msgid "Iniciar"
+msgstr "Iniciar"
+
+msgctxt "ST_Menus,MENU_INSTRUCTIONS_00"
+msgid "Tu misión es simple... en teoría. En la práctica, es cuestión de lógica, nervios de acero y un poco de suerte. Aquí van las reglas:"
+msgstr "Sua missão é simples... em teoria. Na prática, é questão de lógica, nervos de aço e um pouco de sorte. Aqui estão as regras:"
+
+msgctxt "ST_Menus,MENU_INSTRUCTIONS_01"
+msgid "1. Hacé clic sin volar por los aires"
+msgstr "1. Clique sem explodir"
+
+msgctxt "ST_Menus,MENU_INSTRUCTIONS_01b"
+msgid "Cada celda puede esconder una mina... o no. Tu primer clic es pura fe, pero después todo depende de tus decisiones."
+msgstr "Cada casa pode esconder uma mina... ou não. O primeiro clique é pura sorte, depois tudo depende das suas decisões."
+
+msgctxt "ST_Menus,MENU_INSTRUCTIONS_02"
+msgid "2. Usá los números como pistas para esquivar minas"
+msgstr "2. Use os números como pistas para evitar minas"
+
+msgctxt "ST_Menus,MENU_INSTRUCTIONS_02b"
+msgid "Si al abrir una celda aparece un número, significa que esa cantidad de minas está cerca. Observá con atención y pensá antes de arriesgar el próximo clic."
+msgstr "Se ao abrir uma casa aparecer um número, significa que há essa quantidade de minas por perto. Observe e pense antes de arriscar o próximo clique."
+
+msgctxt "ST_Menus,MENU_INSTRUCTIONS_03"
+msgid "3. Poné banderas donde creas que hay explosivos"
+msgstr "3. Coloque bandeiras onde achar que há explosivos"
+
+msgctxt "ST_Menus,MENU_INSTRUCTIONS_03b"
+msgid "Cuando estés seguro de haber localizado una mina, marcala con una bandera. Así evitás pisarla por accidente y te organizás mejor para limpiar el campo."
+msgstr "Quando tiver certeza de ter localizado uma mina, marque-a com uma bandeira. Assim evita pisá-la acidentalmente e se organiza melhor para limpar o campo."
+
+msgctxt "ST_Menus,MENU_INSTRUCTIONS_04"
+msgid "4. Ganás cuando todas las celdas seguras están descubiertas"
+msgstr "4. Você vence quando todas as casas seguras forem descobertas"
+
+msgctxt "ST_Menus,MENU_INSTRUCTIONS_04b"
+msgid "No es necesario encontrar todas las minas, sólo asegurarte de abrir todas las celdas que no las tienen. ¡Si no explotaste, es victoria!"
+msgstr "Não é necessário encontrar todas as minas, apenas abrir todas as casas sem minas. Se não explodiu, é vitória!"
+
+msgctxt "ST_Menus,MENU_INSTRUCTIONS_05"
+msgid "5. El tiempo corre — y tu marca quedará en la historia"
+msgstr "5. O tempo corre — e sua marca ficará na história"
+
+msgctxt "ST_Menus,MENU_INSTRUCTIONS_05b"
+msgid "El cronómetro arranca en cuanto empezás y se detiene cuando ganás o... cuando explotás.\r\nSi lográs terminar sin errores y a toda velocidad, tu tiempo se guardará en el ranking de mejores partidas. ¡Así que jugá con cabeza y sin perder tiempo!"
+msgstr "O cronômetro começa assim que você inicia e para quando vence ou... quando explode. Se terminar sem erros e rapidamente, seu tempo será registrado no ranking. Jogue com cabeça e sem perder tempo!"
+
+msgctxt "ST_Menus,MENU_INSTRUCTIONS_TITLE"
+msgid "Instrucciones"
+msgstr "Instruções"
+
+msgctxt "ST_Menus,MENU_LOSE_TITLE"
+msgid "Perdiste"
+msgstr "Você perdeu"
+
+msgctxt "ST_Menus,MENU_PAUSE_TITLE"
+msgid "Pausa"
+msgstr "Pausa"
+
+msgctxt "ST_Menus,MENU_PRESENTATION_TITLE"
+msgid "Jugar"
+msgstr "Jogar"
+
+msgctxt "ST_Menus,MENU_RANKING_TITLE"
+msgid "Ranking"
+msgstr "Ranking"
+
+msgctxt "ST_Menus,MENU_RECORD_CONGRATS"
+msgid "Felicidades! Lograste un nuevo record!"
+msgstr "Parabéns! Você estabeleceu um novo recorde!"
+
+msgctxt "ST_Menus,MENU_RECORD_POINTS"
+msgid "{SCORE} puntos"
+msgstr "{SCORE} pontos"
+
+msgctxt "ST_Menus,MENU_RECORD_TITLE"
+msgid "Nuevo record"
+msgstr "Novo recorde"
+
+msgctxt "ST_Menus,MENU_RECORD_USERNAME_INPUT"
+msgid "Crack"
+msgstr "As"
+
+msgctxt "ST_Menus,MENU_RECORD_USERNAME_MSG"
+msgid "Top {POSITION} es tuyo"
+msgstr "Top {POSITION} é seu"
+
+msgctxt "ST_Menus,MENU_TOMENU_INSTRUCTION"
+msgid "Instrucciones"
+msgstr "Instruções"
+
+msgctxt "ST_Menus,MENU_TOMENU_MAIN_MENU"
+msgid "Menú principal"
+msgstr "Menu principal"
+
+msgctxt "ST_Menus,MENU_TOMENU_RANKING"
+msgid "Ver ranking"
+msgstr "Ver ranking"
+
+msgctxt "ST_Menus,MENU_WON_TITLE"
+msgid "Ganaste"
+msgstr "Você venceu"

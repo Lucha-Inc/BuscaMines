@@ -1,0 +1,407 @@
+﻿# Game Spanish translation.
+# Fill out your copyright notice in the Description page of Project Settings.
+# 
+msgid ""
+msgstr ""
+"Project-Id-Version: Game\n"
+"POT-Creation-Date: 2026-02-11 20:18\n"
+"PO-Revision-Date: 2026-02-11 20:18\n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#. Key:	D0CB42CC41B79913B4D76E84EDD711A3
+#. SourceLocation:	/Game/FP/GUI/UserWidgets/InGame_UserWidgets/UI_DebugMode.UI_DebugMode_C:GetDebugText [Script Bytecode]
+#: /Game/FP/GUI/UserWidgets/InGame_UserWidgets/UI_DebugMode.UI_DebugMode_C:GetDebugText [Script Bytecode]
+msgctxt ",D0CB42CC41B79913B4D76E84EDD711A3"
+msgid "No Game Level"
+msgstr "No Game Level"
+
+#. Key:	GAME_CLASSIC_DIFFICULTY_EASY_DESCRIPTION
+#. SourceLocation:	/Game/FP/Localization/ST_GAME.ST_GAME
+#: /Game/FP/Localization/ST_GAME.ST_GAME
+msgctxt "ST_GAME,GAME_CLASSIC_DIFFICULTY_EASY_DESCRIPTION"
+msgid "Easy description"
+msgstr "Easy description"
+
+#. Key:	GAME_CLASSIC_DIFFICULTY_EASY_LEVELNAME
+#. SourceLocation:	/Game/FP/Localization/ST_GAME.ST_GAME
+#: /Game/FP/Localization/ST_GAME.ST_GAME
+msgctxt "ST_GAME,GAME_CLASSIC_DIFFICULTY_EASY_LEVELNAME"
+msgid "Nivel fácil"
+msgstr "Nivel fácil"
+
+#. Key:	GAME_CLASSIC_DIFFICULTY_EASY_NAME
+#. SourceLocation:	/Game/FP/Localization/ST_GAME.ST_GAME
+#: /Game/FP/Localization/ST_GAME.ST_GAME
+msgctxt "ST_GAME,GAME_CLASSIC_DIFFICULTY_EASY_NAME"
+msgid "Fácil"
+msgstr "Fácil"
+
+#. Key:	GAME_CLASSIC_DIFFICULTY_HARD_DESCRIPTION
+#. SourceLocation:	/Game/FP/Localization/ST_GAME.ST_GAME
+#: /Game/FP/Localization/ST_GAME.ST_GAME
+msgctxt "ST_GAME,GAME_CLASSIC_DIFFICULTY_HARD_DESCRIPTION"
+msgid "Hard description"
+msgstr "Hard description"
+
+#. Key:	GAME_CLASSIC_DIFFICULTY_HARD_LEVELNAME
+#. SourceLocation:	/Game/FP/Localization/ST_GAME.ST_GAME
+#: /Game/FP/Localization/ST_GAME.ST_GAME
+msgctxt "ST_GAME,GAME_CLASSIC_DIFFICULTY_HARD_LEVELNAME"
+msgid "Nivel difícil"
+msgstr "Nivel difícil"
+
+#. Key:	GAME_CLASSIC_DIFFICULTY_HARD_NAME
+#. SourceLocation:	/Game/FP/Localization/ST_GAME.ST_GAME
+#: /Game/FP/Localization/ST_GAME.ST_GAME
+msgctxt "ST_GAME,GAME_CLASSIC_DIFFICULTY_HARD_NAME"
+msgid "Difícil"
+msgstr "Difícil"
+
+#. Key:	GAME_CLASSIC_DIFFICULTY_MEDIUM_DESCRIPTION
+#. SourceLocation:	/Game/FP/Localization/ST_GAME.ST_GAME
+#: /Game/FP/Localization/ST_GAME.ST_GAME
+msgctxt "ST_GAME,GAME_CLASSIC_DIFFICULTY_MEDIUM_DESCRIPTION"
+msgid "Medio description"
+msgstr "Medio description"
+
+#. Key:	GAME_CLASSIC_DIFFICULTY_MEDIUM_LEVELNAME
+#. SourceLocation:	/Game/FP/Localization/ST_GAME.ST_GAME
+#: /Game/FP/Localization/ST_GAME.ST_GAME
+msgctxt "ST_GAME,GAME_CLASSIC_DIFFICULTY_MEDIUM_LEVELNAME"
+msgid "Nivel medio"
+msgstr "Nivel medio"
+
+#. Key:	GAME_CLASSIC_DIFFICULTY_MEDIUM_NAME
+#. SourceLocation:	/Game/FP/Localization/ST_GAME.ST_GAME
+#: /Game/FP/Localization/ST_GAME.ST_GAME
+msgctxt "ST_GAME,GAME_CLASSIC_DIFFICULTY_MEDIUM_NAME"
+msgid "Medio"
+msgstr "Medio"
+
+#. Key:	HUD_GAME_STATS_MINES_TOTAL
+#. SourceLocation:	/Game/FP/Localization/ST_HUD.ST_HUD
+#: /Game/FP/Localization/ST_HUD.ST_HUD
+msgctxt "ST_HUD,HUD_GAME_STATS_MINES_TOTAL"
+msgid "Minas totales: {total_mines}"
+msgstr "Minas totales: {total_mines}"
+
+#. Key:	HUD_GAME_STATS_TILES_MARKED
+#. SourceLocation:	/Game/FP/Localization/ST_HUD.ST_HUD
+#: /Game/FP/Localization/ST_HUD.ST_HUD
+msgctxt "ST_HUD,HUD_GAME_STATS_TILES_MARKED"
+msgid "Casillas marcadas: {marked_tiles}"
+msgstr "Casillas marcadas: {marked_tiles}"
+
+#. Key:	HUD_GAME_STATS_TILES_REVEALED
+#. SourceLocation:	/Game/FP/Localization/ST_HUD.ST_HUD
+#: /Game/FP/Localization/ST_HUD.ST_HUD
+msgctxt "ST_HUD,HUD_GAME_STATS_TILES_REVEALED"
+msgid "Casillas descubiertas: {revealed_tiles}"
+msgstr "Casillas descubiertas: {revealed_tiles}"
+
+#. Key:	HUD_GAME_STATS_TILES_TOTAL
+#. SourceLocation:	/Game/FP/Localization/ST_HUD.ST_HUD
+#: /Game/FP/Localization/ST_HUD.ST_HUD
+msgctxt "ST_HUD,HUD_GAME_STATS_TILES_TOTAL"
+msgid "Casillas totales: {total_tiles}"
+msgstr "Casillas totales: {total_tiles}"
+
+#. Key:	MAINMENU_CONFIG_VOLUME_ANIMATIONS
+#. SourceLocation:	/Game/FP/Localization/ST_MainMenu.ST_MainMenu
+#: /Game/FP/Localization/ST_MainMenu.ST_MainMenu
+msgctxt "ST_MainMenu,MAINMENU_CONFIG_VOLUME_ANIMATIONS"
+msgid "Volumen de animaciones"
+msgstr "Volumen de animaciones"
+
+#. Key:	MAINMENU_CONFIG_VOLUME_MUSIC
+#. SourceLocation:	/Game/FP/Localization/ST_MainMenu.ST_MainMenu
+#: /Game/FP/Localization/ST_MainMenu.ST_MainMenu
+msgctxt "ST_MainMenu,MAINMENU_CONFIG_VOLUME_MUSIC"
+msgid "Volumen de música"
+msgstr "Volumen de música"
+
+#. Key:	MAINMENU_CONFIG_VOLUME_SYSTEM
+#. SourceLocation:	/Game/FP/Localization/ST_MainMenu.ST_MainMenu
+#: /Game/FP/Localization/ST_MainMenu.ST_MainMenu
+msgctxt "ST_MainMenu,MAINMENU_CONFIG_VOLUME_SYSTEM"
+msgid "Volumen de sistema"
+msgstr "Volumen de sistema"
+
+#. Key:	MIANMENU_BACK
+#. SourceLocation:	/Game/FP/Localization/ST_MainMenu.ST_MainMenu
+#: /Game/FP/Localization/ST_MainMenu.ST_MainMenu
+msgctxt "ST_MainMenu,MIANMENU_BACK"
+msgid "Volver"
+msgstr "Volver"
+
+#. Key:	MIANMENU_CLASSIC_DIFFICULTY_EASY
+#. SourceLocation:	/Game/FP/Localization/ST_MainMenu.ST_MainMenu
+#: /Game/FP/Localization/ST_MainMenu.ST_MainMenu
+msgctxt "ST_MainMenu,MIANMENU_CLASSIC_DIFFICULTY_EASY"
+msgid "Fácil"
+msgstr "Fácil"
+
+#. Key:	MIANMENU_CLASSIC_DIFFICULTY_HARD
+#. SourceLocation:	/Game/FP/Localization/ST_MainMenu.ST_MainMenu
+#: /Game/FP/Localization/ST_MainMenu.ST_MainMenu
+msgctxt "ST_MainMenu,MIANMENU_CLASSIC_DIFFICULTY_HARD"
+msgid "Difícil"
+msgstr "Difícil"
+
+#. Key:	MIANMENU_CLASSIC_DIFFICULTY_MEDIUM
+#. SourceLocation:	/Game/FP/Localization/ST_MainMenu.ST_MainMenu
+#: /Game/FP/Localization/ST_MainMenu.ST_MainMenu
+msgctxt "ST_MainMenu,MIANMENU_CLASSIC_DIFFICULTY_MEDIUM"
+msgid "Medio"
+msgstr "Medio"
+
+#. Key:	MIANMENU_MODE_ADVENTURE
+#. SourceLocation:	/Game/FP/Localization/ST_MainMenu.ST_MainMenu
+#: /Game/FP/Localization/ST_MainMenu.ST_MainMenu
+msgctxt "ST_MainMenu,MIANMENU_MODE_ADVENTURE"
+msgid "Aventura"
+msgstr "Aventura"
+
+#. Key:	MIANMENU_MODE_CLASSIC
+#. SourceLocation:	/Game/FP/Localization/ST_MainMenu.ST_MainMenu
+#: /Game/FP/Localization/ST_MainMenu.ST_MainMenu
+msgctxt "ST_MainMenu,MIANMENU_MODE_CLASSIC"
+msgid "Clásico"
+msgstr "Clásico"
+
+#. Key:	MIANMENU_OPTIONS
+#. SourceLocation:	/Game/FP/Localization/ST_MainMenu.ST_MainMenu
+#: /Game/FP/Localization/ST_MainMenu.ST_MainMenu
+msgctxt "ST_MainMenu,MIANMENU_OPTIONS"
+msgid "Opciones"
+msgstr "Opciones"
+
+#. Key:	MIANMENU_PLAY
+#. SourceLocation:	/Game/FP/Localization/ST_MainMenu.ST_MainMenu
+#: /Game/FP/Localization/ST_MainMenu.ST_MainMenu
+msgctxt "ST_MainMenu,MIANMENU_PLAY"
+msgid "Jugar"
+msgstr "Jugar"
+
+#. Key:	MIANMENU_QUIT
+#. SourceLocation:	/Game/FP/Localization/ST_MainMenu.ST_MainMenu
+#: /Game/FP/Localization/ST_MainMenu.ST_MainMenu
+msgctxt "ST_MainMenu,MIANMENU_QUIT"
+msgid "Salir"
+msgstr "Salir"
+
+#. Key:	MENU_COMMON_LEAVE_GAME
+#. SourceLocation:	/Game/FP/Localization/ST_Menus.ST_Menus
+#: /Game/FP/Localization/ST_Menus.ST_Menus
+msgctxt "ST_Menus,MENU_COMMON_LEAVE_GAME"
+msgid "Abandonar"
+msgstr "Abandonar"
+
+#. Key:	MENU_COMMON_RESTART_GAME
+#. SourceLocation:	/Game/FP/Localization/ST_Menus.ST_Menus
+#: /Game/FP/Localization/ST_Menus.ST_Menus
+msgctxt "ST_Menus,MENU_COMMON_RESTART_GAME"
+msgid "Reiniciar"
+msgstr "Reiniciar"
+
+#. Key:	MENU_COMMON_RESUME_GAME
+#. SourceLocation:	/Game/FP/Localization/ST_Menus.ST_Menus
+#: /Game/FP/Localization/ST_Menus.ST_Menus
+msgctxt "ST_Menus,MENU_COMMON_RESUME_GAME"
+msgid "Seguir jugando"
+msgstr "Seguir jugando"
+
+#. Key:	MENU_COMMON_SCORE
+#. SourceLocation:	/Game/FP/Localization/ST_Menus.ST_Menus
+#: /Game/FP/Localization/ST_Menus.ST_Menus
+msgctxt "ST_Menus,MENU_COMMON_SCORE"
+msgid "Puntaje: {SCORE}"
+msgstr "Puntaje: {SCORE}"
+
+#. Key:	MENU_COMMON_START_GAME
+#. SourceLocation:	/Game/FP/Localization/ST_Menus.ST_Menus
+#: /Game/FP/Localization/ST_Menus.ST_Menus
+msgctxt "ST_Menus,MENU_COMMON_START_GAME"
+msgid "Iniciar"
+msgstr "Iniciar"
+
+#. Key:	MENU_INSTRUCTIONS_00
+#. SourceLocation:	/Game/FP/Localization/ST_Menus.ST_Menus
+#: /Game/FP/Localization/ST_Menus.ST_Menus
+msgctxt "ST_Menus,MENU_INSTRUCTIONS_00"
+msgid "Tu misión es simple... en teoría. En la práctica, es cuestión de lógica, nervios de acero y un poco de suerte. Aquí van las reglas:"
+msgstr "Tu misión es simple... en teoría. En la práctica, es cuestión de lógica, nervios de acero y un poco de suerte. Aquí van las reglas:"
+
+#. Key:	MENU_INSTRUCTIONS_01
+#. SourceLocation:	/Game/FP/Localization/ST_Menus.ST_Menus
+#: /Game/FP/Localization/ST_Menus.ST_Menus
+msgctxt "ST_Menus,MENU_INSTRUCTIONS_01"
+msgid "1. Hacé clic sin volar por los aires"
+msgstr "1. Hacé clic sin volar por los aires"
+
+#. Key:	MENU_INSTRUCTIONS_01b
+#. SourceLocation:	/Game/FP/Localization/ST_Menus.ST_Menus
+#: /Game/FP/Localization/ST_Menus.ST_Menus
+msgctxt "ST_Menus,MENU_INSTRUCTIONS_01b"
+msgid "Cada celda puede esconder una mina... o no. Tu primer clic es pura fe, pero después todo depende de tus decisiones."
+msgstr "Cada celda puede esconder una mina... o no. Tu primer clic es pura fe, pero después todo depende de tus decisiones."
+
+#. Key:	MENU_INSTRUCTIONS_02
+#. SourceLocation:	/Game/FP/Localization/ST_Menus.ST_Menus
+#: /Game/FP/Localization/ST_Menus.ST_Menus
+msgctxt "ST_Menus,MENU_INSTRUCTIONS_02"
+msgid "2. Usá los números como pistas para esquivar minas"
+msgstr "2. Usá los números como pistas para esquivar minas"
+
+#. Key:	MENU_INSTRUCTIONS_02b
+#. SourceLocation:	/Game/FP/Localization/ST_Menus.ST_Menus
+#: /Game/FP/Localization/ST_Menus.ST_Menus
+msgctxt "ST_Menus,MENU_INSTRUCTIONS_02b"
+msgid "Si al abrir una celda aparece un número, significa que esa cantidad de minas está cerca. Observá con atención y pensá antes de arriesgar el próximo clic."
+msgstr "Si al abrir una celda aparece un número, significa que esa cantidad de minas está cerca. Observá con atención y pensá antes de arriesgar el próximo clic."
+
+#. Key:	MENU_INSTRUCTIONS_03
+#. SourceLocation:	/Game/FP/Localization/ST_Menus.ST_Menus
+#: /Game/FP/Localization/ST_Menus.ST_Menus
+msgctxt "ST_Menus,MENU_INSTRUCTIONS_03"
+msgid "3. Poné banderas donde creas que hay explosivos"
+msgstr "3. Poné banderas donde creas que hay explosivos"
+
+#. Key:	MENU_INSTRUCTIONS_03b
+#. SourceLocation:	/Game/FP/Localization/ST_Menus.ST_Menus
+#: /Game/FP/Localization/ST_Menus.ST_Menus
+msgctxt "ST_Menus,MENU_INSTRUCTIONS_03b"
+msgid "Cuando estés seguro de haber localizado una mina, marcala con una bandera. Así evitás pisarla por accidente y te organizás mejor para limpiar el campo."
+msgstr "Cuando estés seguro de haber localizado una mina, marcala con una bandera. Así evitás pisarla por accidente y te organizás mejor para limpiar el campo."
+
+#. Key:	MENU_INSTRUCTIONS_04
+#. SourceLocation:	/Game/FP/Localization/ST_Menus.ST_Menus
+#: /Game/FP/Localization/ST_Menus.ST_Menus
+msgctxt "ST_Menus,MENU_INSTRUCTIONS_04"
+msgid "4. Ganás cuando todas las celdas seguras están descubiertas"
+msgstr "4. Ganás cuando todas las celdas seguras están descubiertas"
+
+#. Key:	MENU_INSTRUCTIONS_04b
+#. SourceLocation:	/Game/FP/Localization/ST_Menus.ST_Menus
+#: /Game/FP/Localization/ST_Menus.ST_Menus
+msgctxt "ST_Menus,MENU_INSTRUCTIONS_04b"
+msgid "No es necesario encontrar todas las minas, sólo asegurarte de abrir todas las celdas que no las tienen. ¡Si no explotaste, es victoria!"
+msgstr "No es necesario encontrar todas las minas, sólo asegurarte de abrir todas las celdas que no las tienen. ¡Si no explotaste, es victoria!"
+
+#. Key:	MENU_INSTRUCTIONS_05
+#. SourceLocation:	/Game/FP/Localization/ST_Menus.ST_Menus
+#: /Game/FP/Localization/ST_Menus.ST_Menus
+msgctxt "ST_Menus,MENU_INSTRUCTIONS_05"
+msgid "5. El tiempo corre — y tu marca quedará en la historia"
+msgstr "5. El tiempo corre — y tu marca quedará en la historia"
+
+#. Key:	MENU_INSTRUCTIONS_05b
+#. SourceLocation:	/Game/FP/Localization/ST_Menus.ST_Menus
+#: /Game/FP/Localization/ST_Menus.ST_Menus
+msgctxt "ST_Menus,MENU_INSTRUCTIONS_05b"
+msgid "El cronómetro arranca en cuanto empezás y se detiene cuando ganás o... cuando explotás.\r\nSi lográs terminar sin errores y a toda velocidad, tu tiempo se guardará en el ranking de mejores partidas. ¡Así que jugá con cabeza y sin perder tiempo!"
+msgstr "El cronómetro arranca en cuanto empezás y se detiene cuando ganás o... cuando explotás.\r\nSi lográs terminar sin errores y a toda velocidad, tu tiempo se guardará en el ranking de mejores partidas. ¡Así que jugá con cabeza y sin perder tiempo!"
+
+#. Key:	MENU_INSTRUCTIONS_TITLE
+#. SourceLocation:	/Game/FP/Localization/ST_Menus.ST_Menus
+#: /Game/FP/Localization/ST_Menus.ST_Menus
+msgctxt "ST_Menus,MENU_INSTRUCTIONS_TITLE"
+msgid "Instrucciones"
+msgstr "Instrucciones"
+
+#. Key:	MENU_LOSE_TITLE
+#. SourceLocation:	/Game/FP/Localization/ST_Menus.ST_Menus
+#: /Game/FP/Localization/ST_Menus.ST_Menus
+msgctxt "ST_Menus,MENU_LOSE_TITLE"
+msgid "Perdiste"
+msgstr "Perdiste"
+
+#. Key:	MENU_PAUSE_TITLE
+#. SourceLocation:	/Game/FP/Localization/ST_Menus.ST_Menus
+#: /Game/FP/Localization/ST_Menus.ST_Menus
+msgctxt "ST_Menus,MENU_PAUSE_TITLE"
+msgid "Pausa"
+msgstr "Pausa"
+
+#. Key:	MENU_PRESENTATION_TITLE
+#. SourceLocation:	/Game/FP/Localization/ST_Menus.ST_Menus
+#: /Game/FP/Localization/ST_Menus.ST_Menus
+msgctxt "ST_Menus,MENU_PRESENTATION_TITLE"
+msgid "Jugar"
+msgstr "Jugar"
+
+#. Key:	MENU_RANKING_TITLE
+#. SourceLocation:	/Game/FP/Localization/ST_Menus.ST_Menus
+#: /Game/FP/Localization/ST_Menus.ST_Menus
+msgctxt "ST_Menus,MENU_RANKING_TITLE"
+msgid "Ranking"
+msgstr "Ranking"
+
+#. Key:	MENU_RECORD_CONGRATS
+#. SourceLocation:	/Game/FP/Localization/ST_Menus.ST_Menus
+#: /Game/FP/Localization/ST_Menus.ST_Menus
+msgctxt "ST_Menus,MENU_RECORD_CONGRATS"
+msgid "Felicidades! Lograste un nuevo record!"
+msgstr "Felicidades! Lograste un nuevo record!"
+
+#. Key:	MENU_RECORD_POINTS
+#. SourceLocation:	/Game/FP/Localization/ST_Menus.ST_Menus
+#: /Game/FP/Localization/ST_Menus.ST_Menus
+msgctxt "ST_Menus,MENU_RECORD_POINTS"
+msgid "{SCORE} puntos"
+msgstr "{SCORE} puntos"
+
+#. Key:	MENU_RECORD_TITLE
+#. SourceLocation:	/Game/FP/Localization/ST_Menus.ST_Menus
+#: /Game/FP/Localization/ST_Menus.ST_Menus
+msgctxt "ST_Menus,MENU_RECORD_TITLE"
+msgid "Nuevo record"
+msgstr "Nuevo record"
+
+#. Key:	MENU_RECORD_USERNAME_INPUT
+#. SourceLocation:	/Game/FP/Localization/ST_Menus.ST_Menus
+#: /Game/FP/Localization/ST_Menus.ST_Menus
+msgctxt "ST_Menus,MENU_RECORD_USERNAME_INPUT"
+msgid "Crack"
+msgstr "Crack"
+
+#. Key:	MENU_RECORD_USERNAME_MSG
+#. SourceLocation:	/Game/FP/Localization/ST_Menus.ST_Menus
+#: /Game/FP/Localization/ST_Menus.ST_Menus
+msgctxt "ST_Menus,MENU_RECORD_USERNAME_MSG"
+msgid "Top {POSITION} es tuyo"
+msgstr "Top {POSITION} es tuyo"
+
+#. Key:	MENU_TOMENU_INSTRUCTION
+#. SourceLocation:	/Game/FP/Localization/ST_Menus.ST_Menus
+#: /Game/FP/Localization/ST_Menus.ST_Menus
+msgctxt "ST_Menus,MENU_TOMENU_INSTRUCTION"
+msgid "Instrucciones"
+msgstr "Instrucciones"
+
+#. Key:	MENU_TOMENU_MAIN_MENU
+#. SourceLocation:	/Game/FP/Localization/ST_Menus.ST_Menus
+#: /Game/FP/Localization/ST_Menus.ST_Menus
+msgctxt "ST_Menus,MENU_TOMENU_MAIN_MENU"
+msgid "Menú principal"
+msgstr "Menú principal"
+
+#. Key:	MENU_TOMENU_RANKING
+#. SourceLocation:	/Game/FP/Localization/ST_Menus.ST_Menus
+#: /Game/FP/Localization/ST_Menus.ST_Menus
+msgctxt "ST_Menus,MENU_TOMENU_RANKING"
+msgid "Ver ranking"
+msgstr "Ver ranking"
+
+#. Key:	MENU_WON_TITLE
+#. SourceLocation:	/Game/FP/Localization/ST_Menus.ST_Menus
+#: /Game/FP/Localization/ST_Menus.ST_Menus
+msgctxt "ST_Menus,MENU_WON_TITLE"
+msgid "Ganaste"
+msgstr "Ganaste"
+
